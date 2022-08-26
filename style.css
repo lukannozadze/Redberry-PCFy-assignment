@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+html {
+  font-size: 10px;
+}
+.logo-container img {
+  display: block;
+  margin: auto;
+  margin-top: 7.9rem;
+}
