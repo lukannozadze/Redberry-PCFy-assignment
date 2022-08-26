@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+}
+html {
+  font-size: 10px;
+}
+.return-back-btn {
+  margin-top: 5.3rem;
+  margin-left: 7rem;
+}
+.workers-info-header {
+  display: flex;
+}
+
+.header-text {
+  margin: auto;
+  font-size: 2rem;
+  font-family: "Helvetica Neue";
+  font-weight: 700;
+  display: flex;
+  gap: 6.6rem;
+  line-height: 2.4rem;
+}
+.worker-info-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.worker-info-divider {
+  width: 16.5rem;
+  border-top: 0.2rem solid #000000;
+}
