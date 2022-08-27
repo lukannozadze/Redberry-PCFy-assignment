@@ -5,7 +5,7 @@
 }
 body {
   max-width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #ebebeb;
 }
 html {
@@ -144,8 +144,13 @@ html {
   padding: 1.8rem 4.45rem 1.8rem 4.45rem;
   margin-bottom: 4.4rem;
   margin-left: 71rem;
+  cursor: pointer;
+  text-decoration: none;
 }
-
+.button a {
+  text-decoration: none;
+  color: #ffffff;
+}
 .footer {
   display: flex;
   justify-content: center;

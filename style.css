@@ -44,6 +44,10 @@ html {
   font-weight: 500;
   font-family: "Helvetica Neue";
 }
+.button a {
+  text-decoration: none;
+  color: #ffffff;
+}
 .add-record {
   padding: 1.8rem 8.2rem 1.8rem 8.2rem;
 }
