@@ -14,6 +14,7 @@ html {
 .return-back-btn {
   margin-top: 5.3rem;
   margin-left: 7rem;
+  height: 5.3rem;
 }
 .workers-info-header {
   display: flex;
@@ -41,11 +42,9 @@ html {
   width: 16.5rem;
   border-top: 0.2rem solid #000000;
 }
-.return-back-btn {
-  height: 5.3rem;
-}
+
 .worker-info-form {
-  width: 126.6rem;
+  width: 122.6rem;
   background-color: #ffffff;
   border-radius: 1.8rem;
   padding-top: 8.8rem;
@@ -164,10 +163,7 @@ html {
   font-family: "Helvetica Neue";
   padding: 1rem 0 1rem 1rem;
 }
-#input:focus {
-  /* background-color: rgba(100, 153, 255, 1); */
-  border: 0.18rem solid red;
-}
+
 .input:focus {
   outline: none !important;
   background-color: rgba(43, 75, 242, 0.06);

@@ -1,0 +1,248 @@
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url(/HelveticaNeue.ttc);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  max-width: 100vw;
+  min-height: 100vh;
+  background-color: #ebebeb;
+}
+html {
+  font-size: 10px;
+}
+.return-back-btn {
+  margin-top: 5.3rem;
+  margin-left: 7rem;
+  height: 5.3rem;
+}
+.laptop-props-header {
+  display: flex;
+}
+
+.header-text {
+  margin: auto;
+  font-size: 2rem;
+  font-family: "Helvetica Neue";
+  font-weight: 700;
+  display: flex;
+  gap: 6.6rem;
+  line-height: 2.4rem;
+  margin-top: 9.1rem;
+  margin-left: 58rem;
+}
+.laptop-props-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.laptop-props-divider {
+  width: 22.3rem;
+  border-top: 0.2rem solid #000000;
+}
+.main-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.1rem;
+}
+.form-container {
+  width: 122.6rem;
+  background-color: #ffffff;
+  border-radius: 1.8rem;
+  padding-top: 8.8rem;
+  margin-bottom: 7.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn-info {
+  cursor: pointer;
+}
+.button {
+  background-color: #62a1eb;
+  color: #ffffff;
+  border-radius: 8px;
+  width: 22.3rem;
+  border: none;
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: "Helvetica Neue";
+  padding: 1.8rem 4.45rem 1.8rem 4.45rem;
+  cursor: pointer;
+}
+.upload-container {
+  width: 87.8rem;
+  height: 42.3rem;
+  background-color: #ebebeb;
+  border: 0.2rem dashed #4386a9;
+  margin-bottom: 4.2rem;
+}
+.upload-txt {
+  font-size: 2rem;
+  line-height: 3.8rem;
+  font-family: "Helvetica Neue";
+  color: #4386a9;
+  font-weight: 600;
+}
+.upload-text-button-flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6.5rem;
+  margin-top: 10.7rem;
+}
+.label {
+  font-size: 1.8rem;
+  font-family: "Helvetica Neue";
+  color: #000000;
+  line-height: 2.1rem;
+  font-weight: 600;
+}
+.input {
+  padding: 1.9rem 1.6rem 2rem 1.6rem;
+  width: 40.7rem;
+  border-radius: 0.8rem;
+  border: 0.2rem solid rgba(138, 192, 226, 1);
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.rule {
+  color: #2e2e2e;
+  font-size: 1.4rem;
+  font-family: "Helvetica Neue";
+  line-height: 2.1rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+.select {
+  width: 40.8rem;
+  height: 6rem;
+  background-color: #ebebeb;
+  border-radius: 0.8rem;
+  font-size: 1.8rem;
+  font-family: "Helvetica Neue";
+  letter-spacing: 0.4px;
+  line-height: 2.1rem;
+  font-weight: 600;
+  padding-left: 1.6rem;
+  border: none;
+  border-right: 1.6rem solid #ebebeb;
+}
+.name-brand-flex-container {
+  display: flex;
+  align-items: center;
+  gap: 6.4rem;
+}
+
+.first-divider,
+.second-divider {
+  width: 87.8rem;
+  border-bottom: 1px solid #c7c7c7;
+  margin-top: 4.2rem;
+  margin-bottom: 4.2rem;
+}
+
+#cpu {
+  width: 27.7rem;
+}
+#cores-number {
+  width: 27.6rem;
+}
+#stream-number {
+  width: 27.6rem;
+}
+.model-cores-stream-flex-container {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.answer-txt {
+  font-family: "Helvetica Neue";
+  font-size: 1.8rem;
+}
+.ram-storage-flex-container {
+  display: flex;
+  align-items: center;
+  gap: 6.3rem;
+  margin-top: 4rem;
+  margin-bottom: 4.4rem;
+}
+.answer {
+  margin-top: 2.6rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+#hdd,
+#secondary {
+  margin-left: 6rem;
+}
+.answer-txt {
+  margin-left: 1.8rem;
+}
+.storage-type-container {
+  margin-top: -4rem;
+}
+.date-price-flex-container {
+  display: flex;
+  gap: 6.3rem;
+  margin-bottom: 3.5rem;
+}
+
+.back-next-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4.7rem;
+  margin-bottom: 4.5rem;
+}
+.btn-save {
+  background-color: #62a1eb;
+  color: #ffffff;
+  border-radius: 8px;
+  width: 22.3rem;
+  border: none;
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: "Helvetica Neue";
+  padding: 1.8rem 3.55rem 1.8rem 3.55rem;
+  display: inline-block;
+}
+.btn-back {
+  border: none;
+  background-color: #ffffff;
+}
+.btn-back a {
+  color: #62a1eb;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-family: "Helvetica Neue";
+  line-height: 2.1rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.input:focus {
+  outline: none !important;
+  background-color: rgba(43, 75, 242, 0.06);
+  border: 0.2rem solid rgba(100, 153, 255, 1);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+.footer-logo {
+  margin-bottom: 4.5rem;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+::placeholder {
+  font-family: "Helvetica Neue";
+}

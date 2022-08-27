@@ -4,22 +4,221 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./laptop.props.css" />
     <title>Redberry PCFy Assignment</title>
   </head>
   <body>
-    <header class="workers-info-header">
-      <img
-        src="./assets/return-back-icon.png"
-        class="return-back-btn"
-        alt="left arrow of returning back"
-      />
+    <header class="laptop-props-header">
+      <a href="./workers-info-page.html">
+        <img
+          src="./assets/return-back-icon.png"
+          class="return-back-btn"
+          alt="left arrow of returning back"
+        />
+      </a>
       <div class="header-text">
         <div class="worker-info-flex">
           <span class="worker-info">თანამშრომლის ინფო</span>
         </div>
-        <span class="laptop-props">ლეპტოპის მახასიათებლები</span>
-        <div class="laptop-props-divider"></div>
+        <div class="laptop-props-flex">
+          <span class="laptop-props">ლეპტოპის მახასიათებლები</span>
+          <div class="laptop-props-divider"></div>
+        </div>
       </div>
     </header>
+    <!-- ---------------------------------------------------------------------------- -->
+
+    <div class="main-container">
+      <div class="form-container">
+        <div class="upload-container">
+          <div class="upload-text-button-flex-container">
+            <span class="upload-txt"
+              >ჩააგდე ან ატვირთე<br />
+              ლეპტოპის ფოტო</span
+            >
+            <button class="button">
+              <label for="img" class="btn btn-info">ატვირთე</label>
+            </button>
+            <input type="file" id="img" style="display: none" />
+          </div>
+        </div>
+        <!-- --------------------------------------------------------------------- -->
+        <form class="form">
+          <div class="name-brand-flex-container">
+            <div class="laptop-input-container">
+              <label class="label" for="laptop-name">ლეპტოპის სახელი</label>
+              <br />
+              <input
+                class="input"
+                type="text"
+                placeholder="HP"
+                id="laptop-name"
+                name="laptop-name"
+              />
+              <br />
+              <span class="rule laptop-name"
+                >ლათინური ასოები, ციფრები, !@#$%^&*()_+=
+              </span>
+            </div>
+            <!-- --------------------------------- -->
+            <div class="brand-select-container">
+              <select id="brand" name="brand" class="select">
+                <option selected hidden>ლეპტოპის ბრენდი</option>
+                <option value="hp">HP</option>
+                <option value="dell">Dell</option>
+                <option value="microsoft">Microsoft</option>
+                <option value="lenovo">Lenovo</option>
+                <option value="acer">Acer</option>
+              </select>
+            </div>
+          </div>
+          <div class="first-divider"></div>
+          <!-- ------------------------------------------------------------- -->
+          <div class="model-cores-stream-flex-container">
+            <div class="cpu-select-container">
+              <select id="cpu" name="cpu" class="select">
+                <option selected hidden>CPU</option>
+                <option value="i3">Intel Core i3</option>
+                <option value="i5">Intel Core i5</option>
+                <option value="i7">Intel Core i7</option>
+                <option value="i9">Intel Core i9</option>
+                <option value="AMD">AMD Ryzen 3</option>
+              </select>
+            </div>
+            <!-- --------------------------------------------------------------------- -->
+            <div class="cpu-cores-container">
+              <label class="label" for="cores-number">CPU-ს ბირთვი</label>
+              <br />
+              <input
+                class="input"
+                type="text"
+                placeholder="14"
+                id="cores-number"
+                name="cores-number"
+              />
+              <br />
+              <span class="rule cores-number">მხოლოდ ციფრები </span>
+            </div>
+            <!-- --------------------------------------------------------------------------- ----->
+            <div class="cpu-stream-container">
+              <label class="label" for="stream-number">CPU-ს ნაკადი</label>
+              <br />
+              <input
+                class="input"
+                type="text"
+                placeholder="365"
+                id="stream-number"
+                name="stream-number"
+              />
+              <br />
+              <span class="rule stream-number">მხოლოდ ციფრები </span>
+            </div>
+          </div>
+          <!-- ------------------------------------------------------------------------------------ -->
+          <div class="ram-storage-flex-container">
+            <div class="ram-container">
+              <label class="label" for="ram">ლეპტოპის RAM (GB)</label>
+              <br />
+              <input
+                class="input"
+                type="text"
+                placeholder="16"
+                id="ram"
+                name="ram"
+              />
+              <br />
+              <span class="rule ram-number">მხოლოდ ციფრები </span>
+            </div>
+            <!---------------------------------------------------------------------------------------- -->
+            <div class="storage-type-container">
+              <span id="storage-txt" class="label">მეხსიერების ტიპი</span>
+              <br />
+              <input
+                type="radio"
+                id="ssd"
+                name="storage-type-answer"
+                class="answer"
+              />
+              <label class="answer-txt" for="yes">SSD</label>
+              <input
+                type="radio"
+                id="hdd"
+                name="storage-type-answer"
+                class="answer"
+              />
+              <label class="answer-txt" for="no">HDD</label>
+            </div>
+          </div>
+          <!--------------------------------------------------------------------------------------------->
+          <div class="second-divider"></div>
+          <!--------------------------------------------------------------------------------------------->
+          <div class="date-price-flex-container">
+            <div class="purchase-date-container">
+              <label class="label" for="purchase-date"
+                >შერჩევის რიცხვი (არჩევითი)</label
+              >
+              <br />
+              <input
+                class="input"
+                type="text"
+                id="purchase-date"
+                name="purchase-date"
+                placeholder="დდ / თთ / წწწწ"
+                onfocus="(this.type='date')"
+                onblur="(this.type='text')"
+              />
+              <br />
+            </div>
+            <!-- ------------------------------------------------------------------------------------------ -->
+            <div class="laptop-price-container">
+              <label class="label" for="laptop-price">ლეპტოპის ფასი</label>
+              <br />
+              <input
+                class="input"
+                type="text"
+                placeholder="0000"
+                id="laptop-price"
+                name="laptop-price"
+              />
+              <br />
+              <span class="rule price-number">მხოლოდ ციფრები </span>
+            </div>
+          </div>
+          <!-- ------------------------------------------------------------ -->
+          <div class="laptop-condition-container">
+            <span class="label">ლეპტოპის მდგომარეობა</span>
+            <br />
+            <input
+              type="radio"
+              id="new"
+              name="condition-answer"
+              class="answer"
+            />
+            <label class="answer-txt" for="yes">ახალი</label>
+            <input
+              type="radio"
+              id="secondary"
+              name="condition-answer"
+              class="answer"
+            />
+            <label class="answer-txt" for="no">მეორადი</label>
+          </div>
+
+          <div class="back-next-buttons-container">
+            <button class="btn-back">
+              <a href="./workers-info-page.html">უკან</a>
+            </button>
+            <button class="btn-save">დამახსოვრება</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <footer class="footer">
+      <img
+        class="footer-logo"
+        src="./assets/footer-logo.png"
+        alt="beautiful redberry logo"
+      />
+    </footer>
   </body>
 </html>
