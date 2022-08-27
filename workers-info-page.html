@@ -22,5 +22,118 @@
         <span class="laptop-props">ლეპტოპის მახასიათებლები</span>
       </div>
     </header>
+
+    <div class="form-container">
+      <form action="" class="worker-info-form">
+        <div class="main-flex-container">
+          <div class="first-last-flex">
+            <div class="cont first-name">
+              <label class="label" for="fname">სახელი</label> <br />
+              <input
+                class="input"
+                type="text"
+                placeholder="გრიშა"
+                id="fname"
+                name="fname"
+              />
+              <img
+                class="correct-icon"
+                id="firstname-mark"
+                src="./assets/correction-icon.png"
+                alt="correction green icon"
+              />
+              <br />
+              <span class="rule first-name"
+                >მინიმუმ 2 სიმბოლო, ქართული ასოები</span
+              >
+            </div>
+            <div class="cont last-name">
+              <label class="label" for="lname">გვარი</label><br />
+              <input
+                type="text"
+                class="input"
+                placeholder="ბაგრატიონი"
+                id="lname"
+                name="lname"
+              /><br />
+              <img
+                class="correct-icon"
+                id="lastname-mark"
+                src="./assets/correction-icon.png"
+                alt="correction green icon"
+              />
+              <span class="rule last-name"
+                >მინიმუმ 2 სიმბოლო, ქართული ასოები</span
+              >
+            </div>
+          </div>
+          <div class="team-select">
+            <select id="team" name="team" class="select">
+              <option selected hidden>თიმი</option>
+
+              <option value="developer">დეველოპერი</option>
+              <option value="hr">HR</option>
+              <option value="sales">გაყიდვები</option>
+              <option value="design">დიზაინი</option>
+              <option value="marketing">მარკეტინგი</option>
+            </select>
+          </div>
+
+          <select id="position" name="position" class="select">
+            <option selected hidden>პოზიცია</option>
+            <option value="volvo">ინტერნი</option>
+            <option value="saab">HR ბიზნეს დეველოპერი</option>
+          </select>
+
+          <div class="cont email-container">
+            <label class="label" for="email">მეილი</label> <br />
+            <input
+              class="input"
+              type="text"
+              placeholder="grish666@redberry.ge"
+              id="email"
+              name="email"
+            />
+            <br />
+            <img
+              class="correct-icon"
+              id="email-mark"
+              src="./assets/correction-icon.png"
+              alt="correction green icon"
+            />
+            <span class="rule email">უნდა მთავრდებოდეს redberry.ge-ით</span>
+          </div>
+
+          <div class="cont tel-container">
+            <label class="label" for="email">ტელეფონის ნომერი</label> <br />
+            <input
+              class="input"
+              type="text"
+              placeholder="+995 598 00 07 01"
+              id="tel"
+              name="tel"
+            />
+            <br />
+            <img
+              class="correct-icon"
+              id="tel-mark"
+              src="./assets/correction-icon.png"
+              alt="correction green icon"
+            />
+            <span class="rule number"
+              >უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს</span
+            >
+          </div>
+          <button class="button">შემდეგი</button>
+        </div>
+      </form>
+    </div>
+    <footer class="footer">
+      <img
+        class="footer-logo"
+        src="./assets/footer-logo.png"
+        alt="beautiful redberry logo"
+      />
+    </footer>
   </body>
 </html>

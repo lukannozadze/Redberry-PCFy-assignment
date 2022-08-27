@@ -43,11 +43,13 @@ html {
   font-size: 2rem;
   font-weight: 500;
   font-family: "Helvetica Neue";
-  line-height: 6rem;
 }
 .add-record {
   padding: 1.8rem 8.2rem 1.8rem 8.2rem;
 }
 .record-list {
   padding: 1.8rem 10.45rem 1.8rem 10.45rem;
+}
+.team-opt-group {
+  background-color: #ffffff;
 }
