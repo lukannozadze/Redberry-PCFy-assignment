@@ -246,3 +246,7 @@ html {
 ::placeholder {
   font-family: "Helvetica Neue";
 }
+.btn-save a {
+  text-decoration: none;
+  color: #ffffff;
+}
