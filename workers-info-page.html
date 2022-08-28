@@ -58,7 +58,6 @@
                 placeholder="ბაგრატიონი"
                 id="lname"
                 name="lname"
-                required
               /><br />
               <img
                 class="correct-icon"
@@ -73,12 +72,14 @@
           </div>
           <div class="team-select">
             <select id="team" name="team" class="select">
-              <option selected hidden>თიმი</option>
+              <option class="team-option-header" selected hidden>თიმი</option>
             </select>
           </div>
 
           <select id="position" name="position" class="select">
-            <option selected hidden>პოზიცია</option>
+            <option class="position-option-header" selected hidden>
+              პოზიცია
+            </option>
             <option value="volvo">ინტერნი</option>
             <option value="saab">HR ბიზნეს დეველოპერი</option>
           </select>
@@ -91,7 +92,6 @@
               placeholder="grish666@redberry.ge"
               id="email"
               name="email"
-              required
             />
             <br />
             <img
@@ -111,7 +111,6 @@
               placeholder="+995 598 00 07 01"
               id="tel"
               name="tel"
-              required
             />
             <br />
             <img
