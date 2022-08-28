@@ -250,3 +250,20 @@ html {
   text-decoration: none;
   color: #ffffff;
 }
+.laptop-price-container {
+  position: relative;
+}
+.gel-icon {
+  position: absolute;
+  top: 5rem;
+  right: 2rem;
+}
+.cont {
+  position: relative;
+}
+.correct-mark {
+  position: absolute;
+  top: 4.7rem;
+  right: 1.5rem;
+  display: none;
+}

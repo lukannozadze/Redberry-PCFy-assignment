@@ -1,5 +1,6 @@
 const brandSelectElement = document.getElementById("brand");
 const cpuSelectElement = document.getElementById("cpu");
+
 fetch("https://pcfy.redberryinternship.ge/api/brands")
   .then((r) => r.json())
   .then((res) => {

@@ -181,5 +181,5 @@ html {
   position: absolute;
   top: 4.7rem;
   right: 1.5rem;
-  opacity: 0;
+  display: none;
 }
