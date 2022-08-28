@@ -73,6 +73,8 @@ html {
   font-size: 2rem;
   font-weight: 500;
   font-family: "Helvetica Neue";
+  text-align: center;
+  text-decoration: none;
   padding: 1.8rem 4.45rem 1.8rem 4.45rem;
   cursor: pointer;
 }
@@ -197,6 +199,7 @@ html {
 
 .back-next-buttons-container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-top: 4.7rem;
   margin-bottom: 4.5rem;
@@ -211,13 +214,10 @@ html {
   font-weight: 500;
   font-family: "Helvetica Neue";
   padding: 1.8rem 3.55rem 1.8rem 3.55rem;
-  display: inline-block;
+  text-decoration: none;
 }
+
 .btn-back {
-  border: none;
-  background-color: #ffffff;
-}
-.btn-back a {
   color: #62a1eb;
   text-decoration: none;
   font-size: 1.8rem;
@@ -225,6 +225,8 @@ html {
   line-height: 2.1rem;
   font-weight: 600;
   letter-spacing: 1.5px;
+  border: none;
+  background-color: #ffffff;
 }
 
 .input:focus {

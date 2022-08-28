@@ -43,6 +43,8 @@ html {
   font-size: 2rem;
   font-weight: 500;
   font-family: "Helvetica Neue";
+  text-decoration: none;
+  text-align: center;
 }
 .button a {
   text-decoration: none;
