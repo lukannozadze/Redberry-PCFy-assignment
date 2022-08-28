@@ -1,12 +1,20 @@
 // inputs
 const brandSelectElement = document.getElementById("brand");
-const laptopName = document.getElementById("laptop-name");
 const cpuSelectElement = document.getElementById("cpu");
+const laptopName = document.getElementById("laptop-name");
 const coresNumber = document.getElementById("cores-number");
 const cpuStreamNumber = document.getElementById("stream-number");
 const ram = document.getElementById("ram");
 const purchaseDate = document.getElementById("purchase-date");
 const price = document.getElementById("laptop-price");
+const answerSSD = document.getElementById("ssd");
+const answerHDD = document.getElementById("hdd");
+const answerBrandNew = document.getElementById("brand-new");
+const answerSecondary = document.getElementById("secondary");
+const brandNewText = document.getElementById("answer-brand-new").textContent;
+const secondaryText = document.getElementById("answer-secondary").textContent;
+const ssdText = document.getElementById("answer-ssd").textContent;
+const hddText = document.getElementById("answer-hdd").textContent;
 
 //icons
 const laptopNameMark = document.getElementById("name-mark");
@@ -21,8 +29,11 @@ const priceGelIcon = document.querySelector(".gel-icon");
 const numbersRule = /^[0-9]*$/;
 const laptopNameRule = /^[a-zA-Z0-9\W]*$/;
 
+const saveBtn = document.querySelector(".btn-save");
+
 let updatedUser = {};
 
+const brandsArr = [];
 fetch("https://pcfy.redberryinternship.ge/api/brands")
   .then((r) => r.json())
   .then((res) => {
@@ -31,6 +42,7 @@ fetch("https://pcfy.redberryinternship.ge/api/brands")
       brandOptEl.value = item.name;
       brandOptEl.textContent = item.name;
       brandSelectElement.append(brandOptEl);
+      brandsArr.push(item);
     });
   });
 
@@ -60,6 +72,27 @@ laptopName.addEventListener("blur", function () {
   }
 });
 
+//////////////////////////////////////////BRANDS///////////////////////////////////////////////////////
+brandSelectElement.addEventListener("click", function () {
+  if (brandSelectElement.value !== "ლეპტოპის ბრენდი") {
+    const currentEl = brandsArr.find(
+      (el) => el.name === brandSelectElement.value
+    );
+    updatedUser = {
+      ...updatedUser,
+      laptop_brand_id: currentEl.id,
+    };
+  }
+});
+///////////////////////////////////////CPUS///////////////////////////////////////////////
+cpuSelectElement.addEventListener("click", function () {
+  if (cpuSelectElement.value !== "CPU") {
+    updatedUser = {
+      ...updatedUser,
+      laptop_cpu: cpuSelectElement.value,
+    };
+  }
+});
 /////////////////////////////////// CORES NUMBER //////////////////////////////////
 coresNumber.addEventListener("blur", function () {
   if (coresNumber.value.match(numbersRule)) {
@@ -82,7 +115,7 @@ cpuStreamNumber.addEventListener("blur", function () {
     coresStreamMark.style.display = "flex";
     updatedUser = {
       ...updatedUser,
-      laptop_cpu_threads:
+      laptop_cpu_threads: cpuStreamNumber.value,
     };
   } else {
     coresStreamMark.style.display = "none";
@@ -96,6 +129,10 @@ cpuStreamNumber.addEventListener("blur", function () {
 ram.addEventListener("blur", function () {
   if (ram.value.match(numbersRule)) {
     ramMark.style.display = "flex";
+    updatedUser = {
+      ...updatedUser,
+      laptop_ram: ram.value,
+    };
   } else {
     ramMark.style.display = "none";
   }
@@ -107,6 +144,10 @@ ram.addEventListener("blur", function () {
 purchaseDate.addEventListener("blur", function () {
   if (purchaseDate.value !== "") {
     purchaseDateMark.style.display = "flex";
+    updatedUser = {
+      ...updatedUser,
+      laptop_purchase_date: purchaseDate.value,
+    };
   } else {
     purchaseDateMark.style.display = "none";
   }
@@ -117,6 +158,10 @@ price.addEventListener("blur", function () {
   if (price.value.match(numbersRule)) {
     priceGelIcon.style.display = "none";
     priceMark.style.display = "flex";
+    updatedUser = {
+      ...updatedUser,
+      laptop_price: price.value,
+    };
   } else {
     priceMark.style.display = "none";
     priceGelIcon.style.display = "flex";
@@ -124,5 +169,68 @@ price.addEventListener("blur", function () {
   if (price.value === "") {
     priceMark.style.display = "none";
     priceGelIcon.style.display = "flex";
+  }
+});
+
+/////////////////////////////////////LAPTOP HARD DRIVE TYPE//////////////////////////
+answerSSD.addEventListener("click", function () {
+  if (answerSSD.checked) {
+    updatedUser = {
+      ...updatedUser,
+      laptop_hard_drive_type: ssdText,
+    };
+  }
+});
+
+answerHDD.addEventListener("click", function () {
+  if (answerHDD.checked) {
+    updatedUser = {
+      ...updatedUser,
+      laptop_hard_drive_type: hddText,
+    };
+  }
+});
+
+////////////////////////////////////////////LAPTOP STATE///////////////////////////////////
+answerBrandNew.addEventListener("click", function () {
+  if (answerBrandNew.checked) {
+    updatedUser = {
+      ...updatedUser,
+      laptop_state: brandNewText,
+    };
+  }
+});
+
+answerSecondary.addEventListener("click", function () {
+  if (answerSecondary.checked) {
+    updatedUser = {
+      ...updatedUser,
+      laptop_state: secondaryText,
+    };
+  }
+});
+////////////////////////////////////////////////SAVE BUTTON EVENT/////////////////////////////////////
+saveBtn.addEventListener("click", function (e) {
+  if (
+    laptopName.value === "" ||
+    brandSelectElement.value === "ლეპტოპის ბრენდი" ||
+    cpuSelectElement.value === "CPU" ||
+    coresNumber.value === "" ||
+    cpuStreamNumber.value === "" ||
+    ram.value === "" ||
+    price.value === "" ||
+    (!answerSSD.checked && !answerSSD.checked) ||
+    (!answerBrandNew.checked && !answerSecondary.checked)
+  ) {
+    e.preventDefault();
+  }
+  if (
+    laptopNameMark.style.display === "none" ||
+    coresNumberMark.style.display === "none" ||
+    coresStreamMark.style.display === "none" ||
+    ramMark.style.display === "none" ||
+    priceMark.style.display === "none"
+  ) {
+    e.preventDefault();
   }
 });
