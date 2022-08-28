@@ -122,23 +122,23 @@ positionSelectElement.addEventListener("click", function () {
 });
 
 /////////////////Prevent next button event if any of the input field is empty///////////////////
-// nextBtn.addEventListener("click", function (e) {
-//   if (
-//     userNameInput.value === "" ||
-//     userLastNameInput.value === "" ||
-//     userEmailInput.value === "" ||
-//     userTelInput.value === "" ||
-//     teamSelectElement.value === "თიმი" ||
-//     positionSelectElement.value === "პოზიცია"
-//   ) {
-//     e.preventDefault();
-//   }
-//   if (
-//     userNameMark.style.display === "none" ||
-//     userLastNameMark.style.display === "none" ||
-//     userEmailMark.style.display === "none" ||
-//     userTelMark.style.display === "none"
-//   ) {
-//     e.preventDefault();
-//   }
-// });
+nextBtn.addEventListener("click", function (e) {
+  if (
+    userNameInput.value === "" ||
+    userLastNameInput.value === "" ||
+    userEmailInput.value === "" ||
+    userTelInput.value === "" ||
+    teamSelectElement.value === "თიმი" ||
+    positionSelectElement.value === "პოზიცია"
+  ) {
+    e.preventDefault();
+  }
+  if (
+    userNameMark.style.display === "none" ||
+    userLastNameMark.style.display === "none" ||
+    userEmailMark.style.display === "none" ||
+    userTelMark.style.display === "none"
+  ) {
+    e.preventDefault();
+  }
+});
