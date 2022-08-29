@@ -11,8 +11,6 @@ const answerSSD = document.getElementById("ssd");
 const answerHDD = document.getElementById("hdd");
 const answerBrandNew = document.getElementById("brand-new");
 const answerSecondary = document.getElementById("secondary");
-const brandNewText = document.getElementById("answer-brand-new").textContent;
-const secondaryText = document.getElementById("answer-secondary").textContent;
 const ssdText = document.getElementById("answer-ssd").textContent;
 const hddText = document.getElementById("answer-hdd").textContent;
 
@@ -196,7 +194,7 @@ answerBrandNew.addEventListener("click", function () {
   if (answerBrandNew.checked) {
     updatedUser = {
       ...updatedUser,
-      laptop_state: brandNewText,
+      laptop_state: "new",
     };
   }
 });
@@ -205,7 +203,7 @@ answerSecondary.addEventListener("click", function () {
   if (answerSecondary.checked) {
     updatedUser = {
       ...updatedUser,
-      laptop_state: secondaryText,
+      laptop_state: "used",
     };
   }
 });
@@ -232,5 +230,21 @@ saveBtn.addEventListener("click", function (e) {
     priceMark.style.display === "none"
   ) {
     e.preventDefault();
+  }
+});
+
+const form = document.querySelector(".upload-text-button-flex-container");
+const formBtn = document.querySelector(".button");
+const fileInput = document.getElementById("img");
+
+formBtn.addEventListener("click", function () {
+  fileInput.click();
+});
+
+fileInput.addEventListener("change", function ({ target }) {
+  let file = target.files[0];
+  if (file) {
+    let fileName = file.name;
+    // uploadFile(fileName);
   }
 });

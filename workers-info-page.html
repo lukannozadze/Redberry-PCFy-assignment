@@ -30,7 +30,8 @@
         <div class="main-flex-container">
           <div class="first-last-flex">
             <div class="cont first-name">
-              <label class="label" for="fname">სახელი</label> <br />
+              <label id="fname-txt" class="label" for="fname">სახელი</label>
+              <br />
               <input
                 class="input"
                 type="text"
@@ -45,12 +46,13 @@
                 alt="correction green icon"
               />
               <br />
-              <span class="rule first-name"
+              <span class="rule first-name-rule"
                 >მინიმუმ 2 სიმბოლო, ქართული ასოები</span
               >
             </div>
             <div class="cont last-name">
-              <label class="label" for="lname">გვარი</label><br />
+              <label id="lname-text" class="label" for="lname">გვარი</label
+              ><br />
               <input
                 type="text"
                 class="input"
@@ -64,7 +66,7 @@
                 src="./assets/correction-icon.png"
                 alt="correction green icon"
               />
-              <span class="rule last-name"
+              <span class="rule last-name-rule"
                 >მინიმუმ 2 სიმბოლო, ქართული ასოები</span
               >
             </div>
@@ -84,7 +86,7 @@
           </select>
 
           <div class="cont email-container">
-            <label class="label" for="email">მეილი</label> <br />
+            <label id="mail-text" class="label" for="email">მეილი</label> <br />
             <input
               class="input"
               type="text"
@@ -99,11 +101,16 @@
               src="./assets/correction-icon.png"
               alt="correction green icon"
             />
-            <span class="rule email">უნდა მთავრდებოდეს redberry.ge-ით</span>
+            <span class="rule email-rule"
+              >უნდა მთავრდებოდეს redberry.ge-ით</span
+            >
           </div>
 
           <div class="cont tel-container">
-            <label class="label" for="telephone">ტელეფონის ნომერი</label> <br />
+            <label id="tel-text" class="label" for="telephone"
+              >ტელეფონის ნომერი</label
+            >
+            <br />
             <input
               class="input"
               type="text"
@@ -118,7 +125,7 @@
               src="./assets/correction-icon.png"
               alt="correction green icon"
             />
-            <span class="rule number"
+            <span class="rule tel-rule"
               >უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს</span
             >
           </div>

@@ -31,7 +31,10 @@
     <div class="main-container">
       <div class="form-container">
         <div class="upload-container">
-          <div class="upload-text-button-flex-container">
+          <form
+            class="upload-text-button-flex-container"
+            enctype="multipart/form-data"
+          >
             <span class="upload-txt"
               >ჩააგდე ან ატვირთე<br />
               ლეპტოპის ფოტო</span
@@ -42,7 +45,7 @@
             </a>
 
             <input type="file" id="img" style="display: none" />
-          </div>
+          </form>
         </div>
         <!-- --------------------------------------------------------------------- -->
         <form class="form">
