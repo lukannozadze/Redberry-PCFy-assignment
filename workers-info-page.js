@@ -43,7 +43,7 @@ fetch("https://pcfy.redberryinternship.ge/api/teams")
       teamArr.push(item);
     });
   });
-
+let filteredPosArr = [];
 fetch("https://pcfy.redberryinternship.ge/api/positions")
   .then((r) => r.json())
   .then((res) => {
@@ -55,12 +55,12 @@ fetch("https://pcfy.redberryinternship.ge/api/positions")
       posArr.push(item);
     });
   });
-let userNameRuleTxt;
-let fnameText;
+// let userNameRuleTxt;
+// let fnameText;
 ////////////////////// USERNAME///////////////////////////////////////////////
 userNameInput.addEventListener("blur", function () {
-  userNameRuleTxt = document.querySelector(".first-name-rule");
-  fnameText = document.getElementById("fname-txt");
+  let userNameRuleTxt = document.querySelector(".first-name-rule");
+  let fnameText = document.getElementById("fname-txt");
   if (userNameInput.value.match(userNameRule)) {
     userNameMark.style.display = "flex";
     userNameInput.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
@@ -188,8 +188,29 @@ userTelInput.addEventListener("blur", function () {
 });
 ////////////////////////TEAM////////////////////////////////////////
 teamSelectElement.addEventListener("click", function () {
+  //filtering positions by teams id
+  filteredPosArr = [];
+  document.getElementById("position").innerHTML = "";
   if (teamSelectElement.value !== "თიმი") {
     const currentEl = teamArr.find((el) => el.name === teamSelectElement.value);
+    for (let i = 0; i < posArr.length; i++) {
+      if (currentEl.id === posArr[i].team_id) {
+        filteredPosArr.push(posArr[i]);
+      }
+    }
+    const defaultOptEl = document.createElement("option");
+    defaultOptEl.classList.add = "position-option-header";
+    defaultOptEl.setAttribute("hidden", "");
+    defaultOptEl.selected = "true";
+    defaultOptEl.textContent = "პოზიცია";
+    positionSelectElement.append(defaultOptEl);
+    filteredPosArr.forEach((item) => {
+      const positionOptEl = document.createElement("option");
+      positionOptEl.value = item.name;
+      positionOptEl.textContent = item.name;
+      positionSelectElement.append(positionOptEl);
+    });
+
     user = {
       ...user,
       team_id: currentEl.id,
@@ -200,6 +221,8 @@ teamSelectElement.addEventListener("click", function () {
 teamSelectElement.addEventListener("blur", function () {
   if (teamSelectElement.value === "თიმი") {
     teamSelectElement.style.border = `0.2rem solid #E52F2F `;
+  } else {
+    teamSelectElement.style.border = `none `;
   }
 });
 
@@ -218,6 +241,8 @@ positionSelectElement.addEventListener("click", function () {
 positionSelectElement.addEventListener("blur", function () {
   if (positionSelectElement.value === "პოზიცია") {
     positionSelectElement.style.border = `0.2rem solid #E52F2F `;
+  } else {
+    positionSelectElement.style.border = `none `;
   }
 });
 
@@ -247,4 +272,5 @@ nextBtn.addEventListener("click", function (e) {
   ) {
     e.preventDefault();
   }
+  console.log(user);
 });

@@ -34,24 +34,33 @@
           <form
             class="upload-text-button-flex-container"
             enctype="multipart/form-data"
+            accept=".jpg"
           >
-            <span class="upload-txt"
-              >ჩააგდე ან ატვირთე<br />
-              ლეპტოპის ფოტო</span
-            >
+            <div class="upload-text-div">
+              <img
+                class="upload-warning-icon"
+                src="./assets/warning-icon.png"
+                alt="warning yellow icon"
+              />
+              <span class="upload-txt">ჩააგდე ან ატვირთე ლეპტოპის ფოტო</span>
+            </div>
 
-            <a class="button" href="#">
-              <label for="img" class="btn btn-info">ატვირთე</label>
-            </a>
-
-            <input type="file" id="img" style="display: none" />
+            <label for="img" class="button btn btn-info">ატვირთე</label>
+            <input
+              class="img-input"
+              type="file"
+              id="img"
+              style="display: none"
+            />
           </form>
         </div>
         <!-- --------------------------------------------------------------------- -->
         <form class="form">
           <div class="name-brand-flex-container">
             <div class="cont laptop-input-container">
-              <label class="label" for="laptop-name">ლეპტოპის სახელი</label>
+              <label id="name-text" class="label" for="laptop-name"
+                >ლეპტოპის სახელი</label
+              >
               <br />
               <input
                 class="input"
@@ -67,7 +76,7 @@
                 alt="correction green mark "
               />
               <br />
-              <span class="rule laptop-name"
+              <span class="rule laptop-name-rule"
                 >ლათინური ასოები, ციფრები, !@#$%^&*()_+=
               </span>
             </div>
@@ -88,7 +97,9 @@
             </div>
             <!-- --------------------------------------------------------------------- -->
             <div class="cont cpu-cores-container">
-              <label class="label" for="cores-number">CPU-ს ბირთვი</label>
+              <label id="cpu-text" class="label" for="cores-number"
+                >CPU-ს ბირთვი</label
+              >
               <br />
               <input
                 class="input"
@@ -104,11 +115,13 @@
                 alt="correction green mark "
               />
               <br />
-              <span class="rule cores-number">მხოლოდ ციფრები </span>
+              <span class="rule cores-number-rule">მხოლოდ ციფრები </span>
             </div>
             <!-- --------------------------------------------------------------------------- ----->
             <div class="cont cpu-stream-container">
-              <label class="label" for="stream-number">CPU-ს ნაკადი</label>
+              <label id="stream-number-text" class="label" for="stream-number"
+                >CPU-ს ნაკადი</label
+              >
               <br />
               <input
                 class="input"
@@ -124,13 +137,15 @@
                 alt="correction green mark "
               />
               <br />
-              <span class="rule stream-number">მხოლოდ ციფრები </span>
+              <span class="rule stream-number-rule">მხოლოდ ციფრები </span>
             </div>
           </div>
           <!-- ------------------------------------------------------------------------------------ -->
           <div class="ram-storage-flex-container">
             <div class="cont ram-container">
-              <label class="label" for="ram">ლეპტოპის RAM (GB)</label>
+              <label id="ram-text" class="label" for="ram"
+                >ლეპტოპის RAM (GB)</label
+              >
               <br />
               <input
                 class="input"
@@ -146,11 +161,18 @@
                 alt="correction green mark "
               />
               <br />
-              <span class="rule ram-number">მხოლოდ ციფრები </span>
+              <span class="rule ram-number-rule">მხოლოდ ციფრები </span>
             </div>
             <!---------------------------------------------------------------------------------------- -->
             <div class="storage-type-container">
-              <span id="storage-txt" class="label">მეხსიერების ტიპი</span>
+              <div class="storage-label-icon-flex">
+                <span id="storage-txt" class="label">მეხსიერების ტიპი</span>
+                <img
+                  class="storage-type-warning-icon"
+                  src="./assets/warning-icon.png"
+                  alt="warning yellow icon"
+                />
+              </div>
               <br />
               <input
                 type="radio"
@@ -196,7 +218,9 @@
             </div>
             <!-- ------------------------------------------------------------------------------------------ -->
             <div class="cont laptop-price-container">
-              <label class="label" for="laptop-price">ლეპტოპის ფასი</label>
+              <label id="price-text" class="label" for="laptop-price"
+                >ლეპტოპის ფასი</label
+              >
               <br />
               <input
                 class="input"
@@ -217,12 +241,21 @@
                 alt="correction green mark "
               />
               <br />
-              <span class="rule price-number">მხოლოდ ციფრები </span>
+              <span class="rule price-number-rule">მხოლოდ ციფრები </span>
             </div>
           </div>
           <!-- ------------------------------------------------------------ -->
           <div class="laptop-condition-container">
-            <span class="label">ლეპტოპის მდგომარეობა</span>
+            <div class="condition-label-icon-flex">
+              <span id="laptop-condition-text" class="label"
+                >ლეპტოპის მდგომარეობა</span
+              >
+              <img
+                class="condition-warning-icon"
+                src="./assets/warning-icon.png"
+                alt="warning yellow icon"
+              />
+            </div>
             <br />
             <input
               type="radio"
@@ -246,9 +279,7 @@
 
           <div class="back-next-buttons-container">
             <a class="btn-back" href="./workers-info-page.html">უკან</a>
-            <a class="btn-save" href="./success-popup-page.html"
-              >დამახსოვრება</a
-            >
+            <a class="btn-save" href="#">დამახსოვრება</a>
           </div>
         </form>
       </div>

@@ -269,3 +269,29 @@ html {
   right: 1.5rem;
   display: none;
 }
+.storage-label-icon-flex,
+.condition-label-icon-flex {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+.storage-type-warning-icon,
+.condition-warning-icon {
+  display: none;
+}
+.upload-warning-icon {
+  width: 3.8rem;
+  height: 3.4rem;
+  display: none;
+}
+.upload-txt {
+  text-align: center;
+  max-width: 19.5rem;
+}
+.upload-text-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.9rem;
+  margin-top: -2rem;
+}
