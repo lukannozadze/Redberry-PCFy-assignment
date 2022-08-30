@@ -17,8 +17,9 @@ const userTelMark = document.getElementById("tel-mark");
 //rules
 const userNameRule = /^[ა-ჰ]{2,}$/;
 const userLastNameRule = /^[ა-ჰ]{2,}$/;
-const userTelRule = /^\d{9}$/;
+const userTelRule = /^[+]995[0-9]{9}$/;
 
+//next button
 const nextBtn = document.querySelector(".next-btn");
 
 /////////////////////////////////////////////////EMPTY FIELD ERROR////////////////////////////////////
@@ -28,10 +29,12 @@ const emptyFieldError = function (el) {
   }
 };
 
+//input fields array
 let user = {};
 
 const teamArr = []; //teams info array
 const posArr = []; //positions info array
+//fetching information from teams API and creating elements
 fetch("https://pcfy.redberryinternship.ge/api/teams")
   .then((r) => r.json())
   .then((res) => {
@@ -43,7 +46,9 @@ fetch("https://pcfy.redberryinternship.ge/api/teams")
       teamArr.push(item);
     });
   });
-let filteredPosArr = [];
+let filteredPosArr = []; //filtered positions array
+
+//fetching information from positions API and creating elements
 fetch("https://pcfy.redberryinternship.ge/api/positions")
   .then((r) => r.json())
   .then((res) => {
@@ -58,9 +63,9 @@ fetch("https://pcfy.redberryinternship.ge/api/positions")
 // let userNameRuleTxt;
 // let fnameText;
 ////////////////////// USERNAME///////////////////////////////////////////////
+let userNameRuleTxt = document.querySelector(".first-name-rule");
+let fnameText = document.getElementById("fname-txt");
 userNameInput.addEventListener("blur", function () {
-  let userNameRuleTxt = document.querySelector(".first-name-rule");
-  let fnameText = document.getElementById("fname-txt");
   if (userNameInput.value.match(userNameRule)) {
     userNameMark.style.display = "flex";
     userNameInput.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
@@ -71,6 +76,7 @@ userNameInput.addEventListener("blur", function () {
       ...user,
       name: userNameInput.value,
     };
+    // localStorage.setItem("user", JSON.stringify(user));
   } else {
     userNameMark.style.display = "none";
   }
@@ -86,12 +92,17 @@ userNameInput.addEventListener("blur", function () {
     userNameRuleTxt.textContent = "გამოიყენე მხოლოდ ქართული ასოები";
     userNameRuleTxt.style.color = "#E52F2F";
     fnameText.style.color = "#E52F2F";
+    // user = {
+    //   ...user,
+    //   name: userNameInput.value,
+    // };
+    // localStorage.setItem("user", JSON.stringify(user));
   }
 });
 /////////////////////////USERLASTNAME/////////////////////////////////////////
+let userLastNameRuleTxt = document.querySelector(".last-name-rule");
+let lnameText = document.getElementById("lname-text");
 userLastNameInput.addEventListener("blur", function () {
-  let userLastNameRuleTxt = document.querySelector(".last-name-rule");
-  let lnameText = document.getElementById("lname-text");
   if (userLastNameInput.value.match(userLastNameRule)) {
     userLastNameMark.style.display = "flex";
     userLastNameInput.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
@@ -102,6 +113,7 @@ userLastNameInput.addEventListener("blur", function () {
       ...user,
       surname: userLastNameInput.value,
     };
+    // localStorage.setItem("user", JSON.stringify(user));
   } else {
     userLastNameMark.style.display = "none";
   }
@@ -119,12 +131,17 @@ userLastNameInput.addEventListener("blur", function () {
     userLastNameRuleTxt.textContent = "გამოიყენე მხოლოდ ქართული ასოები";
     userLastNameRuleTxt.style.color = "#E52F2F";
     lnameText.style.color = "#E52F2F";
+    // user = {
+    //   ...user,
+    //   surname: userLastNameInput.value,
+    // };
+    // localStorage.setItem("user", JSON.stringify(user));
   }
 });
 //////////////////////////////USEREMAIL////////////////////////////////////
+let emailText = document.getElementById("mail-text");
+let userEmailRuleText = document.querySelector(".email-rule");
 userEmailInput.addEventListener("blur", function () {
-  let emailText = document.getElementById("mail-text");
-  let userEmailRuleText = document.querySelector(".email-rule");
   if (userEmailInput.value.endsWith("@redberry.ge")) {
     userEmailMark.style.display = "flex";
     userEmailInput.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
@@ -135,6 +152,7 @@ userEmailInput.addEventListener("blur", function () {
       ...user,
       email: userEmailInput.value,
     };
+    // localStorage.setItem("user", JSON.stringify(user));
   } else {
     userEmailMark.style.display = "none";
   }
@@ -152,12 +170,17 @@ userEmailInput.addEventListener("blur", function () {
     userEmailRuleText.textContent = "უნდა მთავრდებოდეს redberry.ge-ით";
     userEmailRuleText.style.color = "#E52F2F";
     emailText.style.color = "#E52F2F";
+    // user = {
+    //   ...user,
+    //   email: userEmailInput.value,
+    // };
+    // localStorage.setItem("user", JSON.stringify(user));
   }
 });
 ///////////////////////////////USERTEL/////////////////////////////////////
+let telText = document.getElementById("tel-text");
+let userTelRuleText = document.querySelector(".tel-rule");
 userTelInput.addEventListener("blur", function () {
-  let telText = document.getElementById("tel-text");
-  let userTelRuleText = document.querySelector(".tel-rule");
   if (userTelInput.value.match(userTelRule)) {
     userTelMark.style.display = "flex";
     userTelInput.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
@@ -169,6 +192,7 @@ userTelInput.addEventListener("blur", function () {
       ...user,
       phone_number: userTelInput.value,
     };
+    // localStorage.setItem("user", JSON.stringify(user));
   } else {
     userTelMark.style.display = "none";
   }
@@ -184,6 +208,11 @@ userTelInput.addEventListener("blur", function () {
       "მხოლოდ ციფრები, უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს";
     userTelRuleText.style.color = "#E52F2F";
     telText.style.color = "#E52F2F";
+    // user = {
+    //   ...user,
+    //   phone_number: userTelInput.value,
+    // };
+    // localStorage.setItem("user", JSON.stringify(user));
   }
 });
 ////////////////////////TEAM////////////////////////////////////////
@@ -215,6 +244,7 @@ teamSelectElement.addEventListener("click", function () {
       ...user,
       team_id: currentEl.id,
     };
+    localStorage.setItem("user", JSON.stringify(user));
   }
 });
 
@@ -236,6 +266,7 @@ positionSelectElement.addEventListener("click", function () {
       ...user,
       position_id: currentEl.id,
     };
+    // localStorage.setItem("user", JSON.stringify(user));
   }
 });
 positionSelectElement.addEventListener("blur", function () {
@@ -248,6 +279,7 @@ positionSelectElement.addEventListener("blur", function () {
 
 /////////////////Prevent next button event if any of the input field is empty///////////////////
 nextBtn.addEventListener("click", function (e) {
+  localStorage.setItem("user", JSON.stringify(user));
   if (
     userNameInput.value === "" ||
     userLastNameInput.value === "" ||
@@ -274,3 +306,56 @@ nextBtn.addEventListener("click", function (e) {
   }
   console.log(user);
 });
+
+//////When page is refreshed information should not lose
+// window.onload = function () {
+//   if (localStorage.getItem("user") !== null) {
+//     userNameInput.value = JSON.parse(localStorage.getItem("user")).name;
+//     userLastNameInput.value = JSON.parse(localStorage.getItem("user")).surname;
+//     userEmailInput.value = JSON.parse(localStorage.getItem("user")).email;
+//     userTelInput.value = JSON.parse(localStorage.getItem("user")).phone_number;
+//     if (userNameInput.value.match(userNameRule)) {
+//       userNameMark.style.display = "flex";
+//     } else if (JSON.parse(localStorage.getItem("user")).name !== undefined) {
+//       userNameInput.style.border = "0.2rem solid #E52F2F";
+//       userNameRuleTxt.textContent = "გამოიყენე მხოლოდ ქართული ასოები";
+//       userNameRuleTxt.style.color = "#E52F2F";
+//       fnameText.style.color = "#E52F2F";
+//     } else {
+//       userNameInput.value = "";
+//     }
+//     if (userLastNameInput.value.match(userLastNameRule)) {
+//       userLastNameMark.style.display = "flex";
+//     } else if (JSON.parse(localStorage.getItem("user")).surname !== undefined) {
+//       userLastNameInput.style.border = "0.2rem solid #E52F2F";
+//       userLastNameRuleTxt.textContent = "გამოიყენე მხოლოდ ქართული ასოები";
+//       userLastNameRuleTxt.style.color = "#E52F2F";
+//       lnameText.style.color = "#E52F2F";
+//     } else {
+//       userLastNameInput.value = "";
+//     }
+//     if (userEmailInput.value.endsWith("@redberry.ge")) {
+//       userEmailMark.style.display = "flex";
+//     } else if (JSON.parse(localStorage.getItem("user")).email !== undefined) {
+//       userEmailInput.style.border = "0.2rem solid #E52F2F";
+//       userEmailRuleText.textContent = "უნდა მთავრდებოდეს redberry.ge-ით";
+//       userEmailRuleText.style.color = "#E52F2F";
+//       emailText.style.color = "#E52F2F";
+//     } else {
+//       userEmailInput.value = "";
+//     }
+//     if (userTelInput.value.match(userTelRule)) {
+//       userTelMark.style.display = "flex";
+//     } else if (
+//       JSON.parse(localStorage.getItem("user")).phone_number !== undefined
+//     ) {
+//       userTelInput.style.border = "0.2rem solid #E52F2F ";
+//       userTelRuleText.textContent =
+//         "მხოლოდ ციფრები, უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს";
+//       userTelRuleText.style.color = "#E52F2F";
+//       telText.style.color = "#E52F2F";
+//     } else {
+//       userTelInput.value = "";
+//     }
+//   }
+// };

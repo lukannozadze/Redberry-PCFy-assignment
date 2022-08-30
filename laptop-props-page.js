@@ -28,14 +28,16 @@ const numbersRule = /^[0-9]*$/;
 const laptopNameRule = /^[a-zA-Z0-9\W]*$/;
 
 const saveBtn = document.querySelector(".btn-save");
+let updatedUser = {};
+
+const userFromLocalStorage = localStorage.getItem("user");
+updatedUser = JSON.parse(userFromLocalStorage);
 
 const emptyFieldError = function (el) {
   if (el.value === "" || el.value === "ლეპტოპის ბრენდი" || el.value === "CPU") {
     el.style.border = "0.2rem solid #E52F2F ";
   }
 };
-
-let updatedUser = {};
 
 const brandsArr = [];
 fetch("https://pcfy.redberryinternship.ge/api/brands")
@@ -321,15 +323,25 @@ answerSecondary.addEventListener("click", function () {
     };
   }
 });
-////////////////////////////////////////////////SAVE BUTTON EVENT/////////////////////////////////////
 
 ////////////////////////////////////IMAGE FILE//////////////////////////////////////////////////
 const form = document.querySelector(".upload-text-button-flex-container");
 const formBtn = document.querySelector(".button");
 const fileInput = document.getElementById("img");
 const imgInputField = document.querySelector(".img-input");
+
+let formData = new FormData();
+fileInput.addEventListener("change", function () {
+  updatedUser = {
+    ...updatedUser,
+    laptop_image: imgInputField.files[0],
+  };
+});
+
 //////////////////////////////////////////////SAVE BUTTON//////////////////////////////////////////////
+////////////////////////////////////////////////SAVE BUTTON EVENT/////////////////////////////////////
 saveBtn.addEventListener("click", function (e) {
+  localStorage.setItem("user", JSON.stringify(updatedUser));
   if (
     laptopName.value === "" ||
     brandSelectElement.value === "ლეპტოპის ბრენდი" ||
@@ -366,6 +378,9 @@ saveBtn.addEventListener("click", function (e) {
   if (!answerSSD.checked && !answerHDD.checked) {
     storageText.style.color = "#E52F2F";
     storageIcon.style.display = "flex";
+  } else {
+    storageIcon.style.display = "none";
+    storageText.style.color = "#000000";
   }
   /////////////////////////////////LAPTOP CONDITION/////////////////////////////////////////////////
   let conditionIcon = document.querySelector(".condition-warning-icon");
@@ -373,6 +388,9 @@ saveBtn.addEventListener("click", function (e) {
   if (!answerBrandNew.checked && !answerSecondary.checked) {
     conditionText.style.color = "#E52F2F";
     conditionIcon.style.display = "flex";
+  } else {
+    conditionText.style.display = "none";
+    conditionText.style.color = "#000000";
   }
 
   /////////////UPLOAD IMAGE////////////////////////////////////////////////
@@ -385,33 +403,25 @@ saveBtn.addEventListener("click", function (e) {
     uploadContainerText.style.color = "#E52F2F";
     uploadCOntainerIcon.style.display = "flex";
   }
-});
 
-let formData = new FormData();
-fileInput.addEventListener("change", function () {
-  formData.append("name", "გელა");
-  formData.append("surname", "გელაშვილი");
-  formData.append("team_id", 1);
-  formData.append("position_id", 1);
-  formData.append("phone_number", "+995555555555");
-  formData.append("email", "gela.gelashvili@redberry.ge");
-  formData.append("token", "87df83e6810dd554dd8882d7aa604f3a");
-  formData.append("laptop_name", "HP");
+  formData.append("name", updatedUser.name);
+  formData.append("surname", updatedUser.surname);
+  formData.append("team_id", updatedUser.team_id);
+  formData.append("position_id", updatedUser.position_id);
+  formData.append("phone_number", updatedUser.phone_number);
+  formData.append("email", updatedUser.email);
+  formData.append("token", "db1e24a6cebdc1365544f59a45380aec");
+  formData.append("laptop_name", updatedUser.laptop_name);
   formData.append("laptop_image", imgInputField.files[0]);
-  formData.append("laptop_brand_id", 1);
-  formData.append("laptop_cpu", "Intel Core i3");
-  formData.append("laptop_cpu_cores", 64);
-  formData.append("laptop_cpu_threads", 128);
-  formData.append("laptop_ram", 34);
-  formData.append("laptop_hard_drive_type", "HDD");
-  formData.append("laptop_state", "new");
-  formData.append("laptop_purchase_date", "10-10-2003");
-  formData.append("laptop_price", 1600);
-
-  // updatedUser = {
-  //   ...updatedUser,
-  //   imgAddress: formData.get("userFile"),
-  // };
+  formData.append("laptop_brand_id", updatedUser.laptop_brand_id);
+  formData.append("laptop_cpu", updatedUser.laptop_cpu);
+  formData.append("laptop_cpu_cores", updatedUser.laptop_cpu_cores);
+  formData.append("laptop_cpu_threads", updatedUser.laptop_cpu_threads);
+  formData.append("laptop_ram", updatedUser.laptop_ram);
+  formData.append("laptop_hard_drive_type", updatedUser.laptop_hard_drive_type);
+  formData.append("laptop_state", updatedUser.laptop_state);
+  formData.append("laptop_purchase_date", updatedUser.laptop_purchase_date);
+  formData.append("laptop_price", String(updatedUser.laptop_price));
 
   const response = fetch(
     "https://pcfy.redberryinternship.ge/api/laptop/create",
