@@ -1,35 +1,46 @@
+const gridContainer = document.querySelector(".grid-container");
+
 fetch(
   "https://pcfy.redberryinternship.ge/api/laptops?token=bcc35db3fcb195ea59ae3238e986df92"
 )
   .then((r) => r.json())
   .then((res) => {
-    console.log(res.data);
-    // res.forEach((item) => {
-    //   let cpuNameElement = document.createElement("span");
-    //   cpuNameElement.classList.add("cpu-name");
-    //   let userNameElement = document.createElement("span");
-    //   userNameElement.classList.add("user-name");
-    //   let seeMoreElement = document.createElementNS("a");
-    //   seeMoreElement.classList.add("see-more");
-    //   seeMoreElement.href = "#";
-    //   let restInfoDiv = document.createElement("div");
-    //   restInfoDiv.classList.add("rest-info-div");
-    //   restInfoDiv.append(seeMoreElement);
-    //   restInfoDiv.append(cpuNameElement);
-    //   restInfoDiv.append(userNameElement);
-    //   let imgElement = document.createElement("img");
-    //   imgElement.alt = "user computer photo";
-    //   let computerImgDiv = document.createElement("div");
-    //   computerImgDiv.classList.add("computer-img-div");
-    //   computerImgDiv.append(imgElement);
-    //   let infoContainer = document.createElement("div");
-    //   infoContainer.classList.add("info-container");
-    //   infoContainer.append(computerImgDiv);
-    //   infoContainer.append(restInfoDiv);
-    //   imgElement.src = item.laptop.image;
-    // });
+    console.log(res);
+    let imgPathsArr = [];
+    res.data.forEach((item) => {
+      let cpuNameElement = document.createElement("span");
+      cpuNameElement.classList.add("cpu-name");
+      let userNameElement = document.createElement("span");
+      userNameElement.classList.add("user-name");
+      let seeMoreElement = document.createElement("a", "blabla");
+      seeMoreElement.classList.add("see-more");
+      seeMoreElement.href = "#";
+      let restInfoDiv = document.createElement("div");
+      restInfoDiv.classList.add("rest-info-div");
+      restInfoDiv.append(userNameElement);
+      restInfoDiv.append(cpuNameElement);
+      restInfoDiv.append(seeMoreElement);
+      let imgElement = document.createElement("img");
+      imgElement.alt = "user computer photo";
+      let computerImgDiv = document.createElement("div");
+      computerImgDiv.classList.add("computer-img-div");
+      computerImgDiv.append(imgElement);
+      let infoContainer = document.createElement("div");
+      infoContainer.classList.add("info-container");
+      infoContainer.append(computerImgDiv);
+      infoContainer.append(restInfoDiv);
+      gridContainer.append(infoContainer);
+      // imgElement.src = "./assets/old-computer-img.png";
+      userNameElement.textContent = `${item.user.name} ${item.user.surname}`;
+      cpuNameElement.textContent = item.laptop.name;
+      seeMoreElement.textContent = "მეტის ნახვა";
+      imgPathsArr.push(item.laptop.image);
+      imgPathsArr.forEach((el) => {
+        let path = `https://pcfy.redberryinternship.ge${el}`;
+        imgElement.src = path;
+      });
+    });
   });
-
 // <div class="info-container">
 //         <div class="computer-img-div">
 //           <img src="./assets/old-computer-img.png" alt="old computer photo" />

@@ -34,7 +34,7 @@ body {
   display: flex;
   gap: 6.6rem;
   line-height: 2.1rem;
-  margin-left: 85rem;
+  margin-left: 83rem;
   margin-top: -3.5rem;
 }
 
@@ -43,7 +43,7 @@ body {
   align-items: center;
   gap: 2.8rem;
   background-color: #eafaff;
-  padding: 1.5rem 8rem 1.5rem 1.5rem;
+  padding: 1.5rem 9rem 1.5rem 1.5rem;
   border-radius: 2rem;
 }
 .user-name {
@@ -76,4 +76,14 @@ body {
   margin-top: 9.7rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 5.2rem;
+  row-gap: 5.5rem;
+}
+.computer-img-div {
+  width: 26.6rem;
+  height: 17.8rem;
+}
+.computer-img-div img {
+  width: 100%;
+  height: 100%;
 }
