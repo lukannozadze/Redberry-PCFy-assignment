@@ -1,7 +1,7 @@
 const gridContainer = document.querySelector(".grid-container");
 
 fetch(
-  "https://pcfy.redberryinternship.ge/api/laptops?token=bcc35db3fcb195ea59ae3238e986df92"
+  "https://pcfy.redberryinternship.ge/api/laptops?token=db1e24a6cebdc1365544f59a45380aec"
 )
   .then((r) => r.json())
   .then((res) => {
@@ -12,7 +12,7 @@ fetch(
       cpuNameElement.classList.add("cpu-name");
       let userNameElement = document.createElement("span");
       userNameElement.classList.add("user-name");
-      let seeMoreElement = document.createElement("a", "blabla");
+      let seeMoreElement = document.createElement("a");
       seeMoreElement.classList.add("see-more");
       seeMoreElement.href = "#";
       let restInfoDiv = document.createElement("div");
@@ -30,7 +30,6 @@ fetch(
       infoContainer.append(computerImgDiv);
       infoContainer.append(restInfoDiv);
       gridContainer.append(infoContainer);
-      // imgElement.src = "./assets/old-computer-img.png";
       userNameElement.textContent = `${item.user.name} ${item.user.surname}`;
       cpuNameElement.textContent = item.laptop.name;
       seeMoreElement.textContent = "მეტის ნახვა";
@@ -38,16 +37,7 @@ fetch(
       imgPathsArr.forEach((el) => {
         let path = `https://pcfy.redberryinternship.ge${el}`;
         imgElement.src = path;
+        seeMoreElement.href = `../laptop-detailed-page/laptop-info-page.html?${item.laptop.id}`;
       });
     });
   });
-// <div class="info-container">
-//         <div class="computer-img-div">
-//           <img src="./assets/old-computer-img.png" alt="old computer photo" />
-//         </div>
-//         <div class="rest-info-div">
-//           <span class="user-name">ირინე ჩანქსელიანი</span>
-//           <span class="cpu-name">Pentium II </span>
-//           <a class="see-more" href="#">მეტის ნახვა</a>
-//         </div>
-//       </div>

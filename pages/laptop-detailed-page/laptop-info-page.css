@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Helvetica Neue";
-  src: url(/assets/HelveticaNeue.ttc);
+  src: url(../../assets/HelveticaNeue.ttc);
 }
 
 * {
@@ -45,6 +45,8 @@ body {
 }
 .list-txt {
   font-size: 2.2rem;
+  color: #2e2e2e;
+  font-weight: 600;
   font-family: "Helvetica Neue";
 }
 .user-info-quest-cont li {
@@ -91,7 +93,7 @@ body {
 }
 .general-cpu-common-flex {
   display: flex;
-  gap: 22rem;
+  gap: 29.5rem;
 }
 .second-divider {
   width: 117.8rem;
@@ -109,5 +111,10 @@ body {
 }
 .condition-price-date-flex {
   display: flex;
-  gap: 26rem;
+  gap: 27.5rem;
+}
+
+.laptop-image {
+  width: 57.7rem;
+  height: 34.2rem;
 }

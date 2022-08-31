@@ -52,7 +52,7 @@ fetch("https://pcfy.redberryinternship.ge/api/brands")
     });
   });
 
-fetch("/storage/images/L7lYrK0kEFNufxQ6gF8hT0JYvgIKy3APEAav3Z1k.jpg")
+fetch("https://pcfy.redberryinternship.ge/api/cpus")
   .then((r) => r.json())
   .then((res) => {
     res.data.forEach((item) => {
