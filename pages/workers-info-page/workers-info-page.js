@@ -20,12 +20,37 @@ const userTelRule = /^[+]995[0-9]{9}$/;
 
 //next button
 const nextBtn = document.querySelector(".next-btn");
-
-if (localStorage.getItem("user")) {
-  userNameInput.value = JSON.parse(localStorage.getItem("user")).name;
-  userLastNameInput.value = JSON.parse(localStorage.getItem("user")).surname;
-  userEmailInput.value = JSON.parse(localStorage.getItem("user")).email;
-  userTelInput.value = JSON.parse(localStorage.getItem("user")).phone_number;
+let user = {};
+///////////////////////////////REFRESH////////////////////////////////////
+if (localStorage.getItem("userName")) {
+  userNameInput.value = localStorage.getItem("userName");
+} else {
+  userNameInput.value = "";
+}
+if (localStorage.getItem("userLastName")) {
+  userLastNameInput.value = localStorage.getItem("userLastName");
+} else {
+  userLastNameInput.value = "";
+}
+if (localStorage.getItem("clickedTeamElement")) {
+  teamSelectElement.value = localStorage.getItem("clickedTeamElement");
+} else {
+  teamSelectElement.value = "თიმი";
+}
+if (localStorage.getItem("clickedPositionElement")) {
+  positionSelectElement.value = localStorage.getItem("clickedPositionElement");
+} else {
+  positionSelectElement.value = "პოზიცია";
+}
+if (localStorage.getItem("userEmail")) {
+  userEmailInput.value = localStorage.getItem("userEmail");
+} else {
+  userEmailInput.value = "";
+}
+if (localStorage.getItem("userTel")) {
+  userTelInput.value = localStorage.getItem("userTel");
+} else {
+  userTelInput.value = "";
 }
 
 /////////////////////////////////////////////////EMPTY FIELD ERROR////////////////////////////////////
@@ -36,7 +61,6 @@ const emptyFieldError = function (el) {
 };
 
 //input fields array
-let user = {};
 
 const teamArr = []; //teams info array
 const posArr = []; //positions info array
@@ -115,6 +139,8 @@ userNameInput.addEventListener("blur", function () {
       ...user,
       name: userNameInput.value,
     };
+    //save userName for refresh
+    localStorage.setItem("userName", userNameInput.value);
   } else {
     userNameMark.style.display = "none";
   }
@@ -130,6 +156,7 @@ userNameInput.addEventListener("blur", function () {
     userNameRuleTxt.textContent = "გამოიყენე მხოლოდ ქართული ასოები";
     userNameRuleTxt.style.color = "#E52F2F";
     fnameText.style.color = "#E52F2F";
+    localStorage.setItem("userName", userNameInput.value);
   }
 });
 /////////////////////////USERLASTNAME/////////////////////////////////////////
@@ -146,6 +173,7 @@ userLastNameInput.addEventListener("blur", function () {
       ...user,
       surname: userLastNameInput.value,
     };
+    localStorage.setItem("userLastName", userLastNameInput.value);
   } else {
     userLastNameMark.style.display = "none";
   }
@@ -163,6 +191,7 @@ userLastNameInput.addEventListener("blur", function () {
     userLastNameRuleTxt.textContent = "გამოიყენე მხოლოდ ქართული ასოები";
     userLastNameRuleTxt.style.color = "#E52F2F";
     lnameText.style.color = "#E52F2F";
+    localStorage.setItem("userLastName", userLastNameInput.value);
   }
 });
 //////////////////////////////USEREMAIL////////////////////////////////////
@@ -179,6 +208,7 @@ userEmailInput.addEventListener("blur", function () {
       ...user,
       email: userEmailInput.value,
     };
+    localStorage.setItem("userEmail", userEmailInput.value);
   } else {
     userEmailMark.style.display = "none";
   }
@@ -196,6 +226,7 @@ userEmailInput.addEventListener("blur", function () {
     userEmailRuleText.textContent = "უნდა მთავრდებოდეს redberry.ge-ით";
     userEmailRuleText.style.color = "#E52F2F";
     emailText.style.color = "#E52F2F";
+    localStorage.setItem("userEmail", userEmailInput.value);
   }
 });
 ///////////////////////////////USERTEL/////////////////////////////////////
@@ -213,6 +244,7 @@ userTelInput.addEventListener("blur", function () {
       ...user,
       phone_number: userTelInput.value,
     };
+    localStorage.setItem("userTel", userTelInput.value);
   } else {
     userTelMark.style.display = "none";
   }
@@ -228,6 +260,7 @@ userTelInput.addEventListener("blur", function () {
       "მხოლოდ ციფრები, უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს";
     userTelRuleText.style.color = "#E52F2F";
     telText.style.color = "#E52F2F";
+    localStorage.setItem("userTel", userTelInput.value);
   }
 });
 ////////////////////////TEAM////////////////////////////////////////
@@ -318,10 +351,10 @@ nextBtn.addEventListener("click", function (e) {
     emptyFieldError(positionSelectElement);
   }
   if (
-    userNameMark.style.display === "none" ||
-    userLastNameMark.style.display === "none" ||
-    userEmailMark.style.display === "none" ||
-    userTelMark.style.display === "none"
+    userNameMark.style.display === "" ||
+    userLastNameMark.style.display === "" ||
+    userEmailMark.style.display === "" ||
+    userTelMark.style.display === ""
   ) {
     e.preventDefault();
   }
@@ -334,14 +367,18 @@ nextBtn.addEventListener("click", function (e) {
 
 //When user presses back in second registration page, information in the first registration page
 //should not be lost, for this little effect input fields fill from user array, and user array from - local storage
-if (!localStorage.getItem("user")) {
-  userNameInput.value = "";
-  userLastNameInput.value = "";
-  userEmailInput.value = "";
-  userTelInput.value = "";
-  teamSelectElement.value = "თიმი";
-  positionSelectElement.value = "პოზიცია";
-} else {
+// if (localStorage.getItem("user") && localStorage.getItem("user").length === 0) {
+//   userNameInput.value = "";
+//   userLastNameInput.value = "";
+//   userEmailInput.value = "";
+//   userTelInput.value = "";
+//   teamSelectElement.value = "თიმი";
+//   positionSelectElement.value = "პოზიცია";
+// } else
+if (
+  localStorage.getItem("user") &&
+  !localStorage.getItem("user").length === 0
+) {
   user.name = JSON.parse(localStorage.getItem("user")).name;
   user.surname = JSON.parse(localStorage.getItem("user")).surname;
   user.email = JSON.parse(localStorage.getItem("user")).email;
@@ -352,8 +389,8 @@ if (!localStorage.getItem("user")) {
   userEmailInput.value = user.email;
   userTelInput.value = user.phone_number;
 
-  userNameMark.style.display = "flex";
-  userLastNameMark.style.display = "flex";
-  userEmailMark.style.display = "flex";
-  userTelMark.style.display = "flex";
+  // userNameMark.style.display = "flex";
+  // userLastNameMark.style.display = "flex";
+  // userEmailMark.style.display = "flex";
+  // userTelMark.style.display = "flex";
 }
