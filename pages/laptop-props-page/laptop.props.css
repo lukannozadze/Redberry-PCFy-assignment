@@ -295,3 +295,8 @@ html {
   gap: 1.9rem;
   margin-top: -2rem;
 }
+
+.worker-info-link {
+  text-decoration: none;
+  color: #000000;
+}

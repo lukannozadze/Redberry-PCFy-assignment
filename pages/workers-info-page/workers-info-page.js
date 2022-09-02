@@ -133,7 +133,7 @@ userNameInput.addEventListener("blur", function () {
     userNameMark.style.display = "flex";
     userNameInput.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
     userNameRuleTxt.textContent = "მინიმუმ 2 სიმბოლო, ქართული ასოები";
-    userNameRuleTxt.style.color = "#2E2E2E";
+    userNameRuleTxt.style.color = "rgba(0, 0, 0, 0.6)";
     fnameText.style.color = "#000000";
     user = {
       ...user,
@@ -167,7 +167,7 @@ userLastNameInput.addEventListener("blur", function () {
     userLastNameMark.style.display = "flex";
     userLastNameInput.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
     userLastNameRuleTxt.textContent = "მინიმუმ 2 სიმბოლო, ქართული ასოები";
-    userLastNameRuleTxt.style.color = "#2E2E2E";
+    userLastNameRuleTxt.style.color = "rgba(0, 0, 0, 0.6)";
     lnameText.style.color = "#000000";
     user = {
       ...user,
@@ -202,7 +202,7 @@ userEmailInput.addEventListener("blur", function () {
     userEmailMark.style.display = "flex";
     userEmailInput.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
     userEmailRuleText.textContent = "უნდა მთავრდებოდეს redberry.ge-ით";
-    userEmailRuleText.style.color = "#2E2E2E";
+    userEmailRuleText.style.color = "rgba(0, 0, 0, 0.6)";
     emailText.style.color = "#000000";
     user = {
       ...user,
@@ -238,7 +238,7 @@ userTelInput.addEventListener("blur", function () {
     userTelInput.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
     userTelRuleText.textContent =
       "უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს";
-    userTelRuleText.style.color = "#2E2E2E";
+    userTelRuleText.style.color = "rgba(0, 0, 0, 0.6)";
     telText.style.color = "#000000";
     user = {
       ...user,
