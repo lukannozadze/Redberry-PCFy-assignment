@@ -1,7 +1,7 @@
 const gridContainer = document.querySelector(".grid-container");
 
 fetch(
-  "https://pcfy.redberryinternship.ge/api/laptops?token=db1e24a6cebdc1365544f59a45380aec"
+  "https://pcfy.redberryinternship.ge/api/laptops?token=dfcb53d734ba326d29dacdd754100855"
 )
   .then((r) => r.json())
   .then((res) => {

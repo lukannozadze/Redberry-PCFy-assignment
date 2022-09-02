@@ -51,7 +51,7 @@ const x = async function () {
   console.log(brandsArr);
 
   let allDataResponse = await fetch(
-    `https://pcfy.redberryinternship.ge/api/laptop/${id}?token=db1e24a6cebdc1365544f59a45380aec`
+    `https://pcfy.redberryinternship.ge/api/laptop/${id}?token=dfcb53d734ba326d29dacdd754100855`
   );
   let allData = await allDataResponse.json();
   console.log(allData);

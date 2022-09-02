@@ -363,6 +363,24 @@ nextBtn.addEventListener("click", function (e) {
     "filteredPosNamesArr",
     JSON.stringify(filteredPosNamesArr)
   );
+  let currentTeamEl = "";
+  let currentPosEl = "";
+
+  if (teamSelectElement.value !== "თიმი") {
+    localStorage.removeItem("filteredPosNamesArr");
+    currentTeamEl = teamArr.find((el) => el.name === teamSelectElement.value);
+    console.log(currentTeamEl);
+  }
+  if (positionSelectElement.value !== "პოზიცია") {
+    currentPosEl = posArr.find((el) => el.name === positionSelectElement.value);
+    console.log(currentPosEl);
+  }
+  if (currentTeamEl.id !== currentPosEl.team_id) {
+    e.preventDefault();
+    teamSelectElement.style.border = `0.2rem solid #E52F2F `;
+    positionSelectElement.style.border = `0.2rem solid #E52F2F `;
+  }
+  console.log(currentTeamEl.id === currentPosEl.team_id);
 });
 
 //When user presses back in second registration page, information in the first registration page
