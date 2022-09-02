@@ -136,7 +136,7 @@ laptopName.addEventListener("blur", function () {
     laptopNameMark.style.display = "flex";
     laptopName.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
     laptopNameRule.textContent = "ლათინური ასოები, ციფრები, !@#$%^&*()_+=";
-    laptopNameRule.style.color = "#000000";
+    laptopNameRule.style.color = "rgba(0, 0, 0, 0.6)";
     laptopNameText.style.color = "#2E2E2E";
     updatedUser = {
       ...updatedUser,
@@ -210,7 +210,7 @@ coresNumber.addEventListener("blur", function () {
     coresNumberMark.style.display = "flex";
     coresNumber.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
     coresNumberRule.textContent = "მხოლოდ ციფრები";
-    coresNumberRule.style.color = "#000000";
+    coresNumberRule.style.color = "rgba(0, 0, 0, 0.6)";
     coresNumberText.style.color = "#2E2E2E";
     updatedUser = {
       ...updatedUser,
@@ -246,7 +246,7 @@ cpuStreamNumber.addEventListener("blur", function () {
     coresStreamMark.style.display = "flex";
     cpuStreamNumber.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
     streamNumberRule.textContent = "მხოლოდ ციფრები";
-    streamNumberRule.style.color = "#000000";
+    streamNumberRule.style.color = "rgba(0, 0, 0, 0.6)";
     streamNumberText.style.color = "#2E2E2E";
     updatedUser = {
       ...updatedUser,
@@ -285,7 +285,7 @@ ram.addEventListener("blur", function () {
     ramMark.style.display = "flex";
     ram.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
     ramRule.textContent = "მხოლოდ ციფრები";
-    ramRule.style.color = "#000000";
+    ramRule.style.color = "rgba(0, 0, 0, 0.6)";
     ramText.style.color = "#2E2E2E";
     updatedUser = {
       ...updatedUser,
@@ -334,7 +334,7 @@ price.addEventListener("blur", function () {
     priceMark.style.display = "flex";
     price.style.border = "0.2rem solid rgba(138, 192, 226, 1)";
     priceRule.textContent = "მხოლოდ ციფრები";
-    priceRule.style.color = "#000000";
+    priceRule.style.color = "rgba(0, 0, 0, 0.6)";
     priceText.style.color = "#2E2E2E";
     updatedUser = {
       ...updatedUser,
@@ -486,36 +486,41 @@ saveBtn.addEventListener("click", function (e) {
     uploadCOntainerIcon.style.display = "flex";
   }
 
-  formData.append("name", updatedUser.name);
-  formData.append("surname", updatedUser.surname);
-  formData.append("team_id", updatedUser.team_id);
-  formData.append("position_id", updatedUser.position_id);
-  formData.append("phone_number", updatedUser.phone_number);
-  formData.append("email", updatedUser.email);
-  formData.append("token", "dfcb53d734ba326d29dacdd754100855");
-  formData.append("laptop_name", updatedUser.laptop_name);
-  formData.append("laptop_image", imgInputField.files[0]);
-  formData.append("laptop_brand_id", updatedUser.laptop_brand_id);
-  formData.append("laptop_cpu", updatedUser.laptop_cpu);
-  formData.append("laptop_cpu_cores", updatedUser.laptop_cpu_cores);
-  formData.append("laptop_cpu_threads", updatedUser.laptop_cpu_threads);
-  formData.append("laptop_ram", updatedUser.laptop_ram);
-  formData.append("laptop_hard_drive_type", updatedUser.laptop_hard_drive_type);
-  formData.append("laptop_state", updatedUser.laptop_state);
-  formData.append("laptop_purchase_date", updatedUser.laptop_purchase_date);
-  formData.append("laptop_price", String(updatedUser.laptop_price));
+  if (updatedUser !== null) {
+    formData.append("name", updatedUser.name);
+    formData.append("surname", updatedUser.surname);
+    formData.append("team_id", updatedUser.team_id);
+    formData.append("position_id", updatedUser.position_id);
+    formData.append("phone_number", updatedUser.phone_number);
+    formData.append("email", updatedUser.email);
+    formData.append("token", "dfcb53d734ba326d29dacdd754100855");
+    formData.append("laptop_name", updatedUser.laptop_name);
+    formData.append("laptop_image", imgInputField.files[0]);
+    formData.append("laptop_brand_id", updatedUser.laptop_brand_id);
+    formData.append("laptop_cpu", updatedUser.laptop_cpu);
+    formData.append("laptop_cpu_cores", updatedUser.laptop_cpu_cores);
+    formData.append("laptop_cpu_threads", updatedUser.laptop_cpu_threads);
+    formData.append("laptop_ram", updatedUser.laptop_ram);
+    formData.append(
+      "laptop_hard_drive_type",
+      updatedUser.laptop_hard_drive_type
+    );
+    formData.append("laptop_state", updatedUser.laptop_state);
+    formData.append("laptop_purchase_date", updatedUser.laptop_purchase_date);
+    formData.append("laptop_price", String(updatedUser.laptop_price));
 
-  console.log(updatedUser);
+    console.log(updatedUser);
 
-  const response = fetch(
-    "https://pcfy.redberryinternship.ge/api/laptop/create",
-    {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-      },
-      body: formData,
-    }
-  ).catch(console.error());
-  console.log(response);
+    const response = fetch(
+      "https://pcfy.redberryinternship.ge/api/laptop/create",
+      {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+        },
+        body: formData,
+      }
+    ).catch(console.error());
+    console.log(response);
+  }
 });

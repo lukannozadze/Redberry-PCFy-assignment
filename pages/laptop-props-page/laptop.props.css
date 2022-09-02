@@ -113,6 +113,7 @@ html {
   border: 0.2rem solid rgba(138, 192, 226, 1);
   margin-top: 0.8rem;
   margin-bottom: 0.8rem;
+  font-size: 1.6rem;
 }
 .rule {
   color: #2e2e2e;
@@ -134,6 +135,9 @@ html {
   padding-left: 1.6rem;
   border: none;
   border-right: 1.6rem solid #ebebeb;
+}
+.select:focus {
+  outline: none;
 }
 .name-brand-flex-container {
   display: flex;
