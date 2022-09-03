@@ -411,14 +411,59 @@ const form = document.querySelector(".upload-text-button-flex-container");
 const formBtn = document.querySelector(".button");
 const fileInput = document.getElementById("img");
 const imgInputField = document.querySelector(".img-input");
+const uploadContainer = document.querySelector(".upload-container");
+let uploadContainerText = document.querySelector(".upload-txt");
+const previewImage = document.querySelector(".preview-image");
 
 let formData = new FormData();
 fileInput.addEventListener("change", function () {
+  const file = imgInputField.files[0];
+  if (file) {
+    const reader = new FileReader();
+    uploadContainerText.style.display = "none";
+    formBtn.style.display = "none";
+
+    reader.addEventListener("load", function () {
+      uploadContainer.style.backgroundImage = `url(${this.result})`;
+      formBtn.style.display = "flex";
+    });
+    reader.readAsDataURL(file);
+  }
+
   updatedUser = {
     ...updatedUser,
     laptop_image: imgInputField.files[0],
   };
 });
+
+// DRAG AND DROP
+uploadContainer.addEventListener("dragover", function (e) {
+  e.preventDefault();
+  uploadContainer.classList.add("upload-over");
+});
+["dragleave", "dragend"].forEach((eventType) => {
+  uploadContainer.addEventListener(eventType, function (e) {
+    uploadContainer.classList.remove("upload-over");
+  });
+});
+uploadContainer.addEventListener("drop", function (e) {
+  e.preventDefault();
+  if (e.dataTransfer.files.length) {
+    updateThumbnail(e.dataTransfer.files[0]);
+  }
+  uploadContainer.classList.remove("upload-over");
+});
+const updateThumbnail = function (file) {
+  if (file.type.startsWith("image/")) {
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      uploadContainer.style.backgroundImage = `url(${reader.result})`;
+      uploadContainerText.style.display = "none";
+    };
+  }
+};
 
 //////////////////////////////////////////////SAVE BUTTON//////////////////////////////////////////////
 ////////////////////////////////////////////////SAVE BUTTON EVENT/////////////////////////////////////
@@ -445,11 +490,11 @@ saveBtn.addEventListener("click", function (e) {
     emptyFieldError(price);
   }
   if (
-    laptopNameMark.style.display === "none" ||
-    coresNumberMark.style.display === "none" ||
-    coresStreamMark.style.display === "none" ||
-    ramMark.style.display === "none" ||
-    priceMark.style.display === "none"
+    laptopNameMark.style.display === "" ||
+    coresNumberMark.style.display === "" ||
+    coresStreamMark.style.display === "" ||
+    ramMark.style.display === "" ||
+    priceMark.style.display === ""
   ) {
     e.preventDefault();
   }
@@ -477,7 +522,6 @@ saveBtn.addEventListener("click", function (e) {
 
   /////////////UPLOAD IMAGE////////////////////////////////////////////////
   let uploadContainer = document.querySelector(".upload-container");
-  let uploadContainerText = document.querySelector(".upload-txt");
   let uploadCOntainerIcon = document.querySelector(".upload-warning-icon");
   if (fileInput.files.length === 0) {
     uploadContainer.style.border = "0.2rem dashed #E52F2F";

@@ -60,6 +60,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .btn-info {
   cursor: pointer;
@@ -84,6 +85,8 @@ html {
   background-color: #ebebeb;
   border: 0.2rem dashed #4386a9;
   margin-bottom: 4.2rem;
+  background-image: url(#);
+  background-size: 100% 100%;
 }
 .upload-txt {
   font-size: 2rem;
@@ -303,4 +306,7 @@ html {
 .worker-info-link {
   text-decoration: none;
   color: #000000;
+}
+.upload-over {
+  border: 0.2rem solid #4386a9;
 }
