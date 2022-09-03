@@ -59,3 +59,21 @@ html {
 .team-opt-group {
   background-color: #ffffff;
 }
+.landing-page-image-responsive {
+  display: none;
+}
+/* RESPONSIVE */
+@media screen and (max-width: 390px) {
+  .landing-page-image {
+    display: none;
+  }
+  .landing-page-image-responsive {
+    display: flex;
+  }
+  .container {
+    gap: 11.7rem;
+  }
+  .buttons {
+    gap: 1.6rem;
+  }
+}

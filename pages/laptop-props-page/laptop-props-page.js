@@ -38,7 +38,6 @@ if (localStorage.getItem("laptopName")) {
 }
 if (localStorage.getItem("laptopBrand")) {
   brandSelectElement.value = localStorage.getItem("laptopBrand");
-  console.log("shemevedi");
 } else {
   brandSelectElement.value = "ლეპტოპის ბრენდი";
 }
@@ -107,7 +106,6 @@ fetch("https://pcfy.redberryinternship.ge/api/brands")
     });
     if (localStorage.getItem("laptopBrand")) {
       brandSelectElement.value = localStorage.getItem("laptopBrand");
-      console.log("shemevedi");
     } else {
       brandSelectElement.value = "ლეპტოპის ბრენდი";
     }
@@ -161,7 +159,7 @@ laptopName.addEventListener("blur", function () {
       "გამოიყენე ლათინური ასოები, ციფრები, !@#$%^&*()_+=";
     laptopNameText.style.color = "#E52F2F";
     laptopNameRule.style.color = "#E52F2F";
-    // localStorage.setItem("laptopName", laptopName.value);
+    localStorage.setItem("laptopName", laptopName.value);
   }
 });
 
@@ -528,9 +526,14 @@ saveBtn.addEventListener("click", function (e) {
     uploadContainer.style.backgroundColor = "#FFF1F1";
     uploadContainerText.style.color = "#E52F2F";
     uploadCOntainerIcon.style.display = "flex";
+  } else {
+    uploadContainer.style.border = "0.2rem dashed #4386a9";
+    uploadContainer.style.backgroundColor = "#F6F6F6";
+    uploadContainerText.style.color = "#4386a9";
   }
 
   if (updatedUser !== null) {
+    e.preventDefault();
     formData.append("name", updatedUser.name);
     formData.append("surname", updatedUser.surname);
     formData.append("team_id", updatedUser.team_id);
@@ -553,18 +556,25 @@ saveBtn.addEventListener("click", function (e) {
     formData.append("laptop_purchase_date", updatedUser.laptop_purchase_date);
     formData.append("laptop_price", String(updatedUser.laptop_price));
 
-    console.log(updatedUser);
-
-    const response = fetch(
-      "https://pcfy.redberryinternship.ge/api/laptop/create",
-      {
-        method: "POST",
-        headers: {
-          accept: "application/json",
-        },
-        body: formData,
-      }
-    ).catch(console.error());
-    console.log(response);
+    send(formData);
   }
 });
+
+const changeURL = function () {
+  let currentURL = document.URL;
+  const newURL = currentURL.replace(
+    "laptop-props-page/laptop-props.html",
+    "success-popup-page/success-popup-page.html"
+  );
+  window.location.assign(String(newURL));
+};
+const send = async function (data) {
+  await fetch("https://pcfy.redberryinternship.ge/api/laptop/create", {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+    },
+    body: data,
+  });
+  changeURL();
+};

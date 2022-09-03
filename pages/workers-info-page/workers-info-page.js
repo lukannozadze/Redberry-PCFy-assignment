@@ -71,7 +71,6 @@ const teamSort = async function () {
     "https://pcfy.redberryinternship.ge/api/teams"
   );
   let teamsData = await teamsResponse.json();
-  console.log(teamsData);
   teamsData.data.forEach((item) => {
     teamArr.push(item);
     const teamOptEl = document.createElement("option");
@@ -104,12 +103,11 @@ const positionSort = async function () {
       "clickedPositionElement"
     );
   }
-  console.log(1946);
+
   if (localStorage.getItem("filteredPosNamesArr")) {
     document.getElementById("position").innerHTML = "";
-    console.log(69);
+
     let posNames = JSON.parse(localStorage.getItem("filteredPosNamesArr"));
-    console.log(posNames);
 
     for (let i = 0; i < posNames.length; i++) {
       const positionOptEl = document.createElement("option");
@@ -120,7 +118,6 @@ const positionSort = async function () {
     positionSelectElement.value = localStorage.getItem(
       "clickedPositionElement"
     );
-    console.log(1945);
   }
 };
 positionSort();
@@ -146,7 +143,7 @@ userNameInput.addEventListener("blur", function () {
   }
   if (userNameInput.value === "") {
     userNameInput.style.border = "0.2rem solid #E52F2F";
-    console.log(userNameRuleTxt);
+
     userNameRuleTxt.textContent = "შეავსე გამოტოვებული ველი";
     userNameRuleTxt.style.color = "#E52F2F";
     fnameText.style.color = "#E52F2F";
@@ -358,7 +355,7 @@ nextBtn.addEventListener("click", function (e) {
   ) {
     e.preventDefault();
   }
-  console.log(user);
+
   localStorage.setItem(
     "filteredPosNamesArr",
     JSON.stringify(filteredPosNamesArr)
@@ -369,30 +366,17 @@ nextBtn.addEventListener("click", function (e) {
   if (teamSelectElement.value !== "თიმი") {
     localStorage.removeItem("filteredPosNamesArr");
     currentTeamEl = teamArr.find((el) => el.name === teamSelectElement.value);
-    console.log(currentTeamEl);
   }
   if (positionSelectElement.value !== "პოზიცია") {
     currentPosEl = posArr.find((el) => el.name === positionSelectElement.value);
-    console.log(currentPosEl);
   }
   if (currentTeamEl.id !== currentPosEl.team_id) {
     e.preventDefault();
     teamSelectElement.style.border = `0.2rem solid #E52F2F `;
     positionSelectElement.style.border = `0.2rem solid #E52F2F `;
   }
-  console.log(currentTeamEl.id === currentPosEl.team_id);
 });
 
-//When user presses back in second registration page, information in the first registration page
-//should not be lost, for this little effect input fields fill from user array, and user array from - local storage
-// if (localStorage.getItem("user") && localStorage.getItem("user").length === 0) {
-//   userNameInput.value = "";
-//   userLastNameInput.value = "";
-//   userEmailInput.value = "";
-//   userTelInput.value = "";
-//   teamSelectElement.value = "თიმი";
-//   positionSelectElement.value = "პოზიცია";
-// } else
 if (
   localStorage.getItem("user") &&
   !localStorage.getItem("user").length === 0
@@ -406,9 +390,4 @@ if (
   userLastNameInput.value = user.surname;
   userEmailInput.value = user.email;
   userTelInput.value = user.phone_number;
-
-  // userNameMark.style.display = "flex";
-  // userLastNameMark.style.display = "flex";
-  // userEmailMark.style.display = "flex";
-  // userTelMark.style.display = "flex";
 }
