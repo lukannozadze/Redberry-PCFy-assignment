@@ -70,3 +70,30 @@ body {
   font-weight: 600;
   letter-spacing: 1.5px;
 }
+
+/* RESPONSIVE */
+@media screen and (max-width: 390px) {
+  .popup-window {
+    width: 100vw;
+    height: 100vh;
+  }
+  .main-container {
+    position: relative;
+  }
+  .main-message {
+    width: 16rem;
+    font-size: 2.2rem;
+    text-indent: 2rem;
+    line-height: 1.8;
+    position: absolute;
+    top: 45rem;
+  }
+  .popup-image {
+    margin-top: -15.9rem;
+    position: absolute;
+    top: 34rem;
+  }
+  .btn-add-to-list {
+    margin-top: 62rem;
+  }
+}

@@ -426,7 +426,9 @@ fileInput.addEventListener("change", function () {
 
     reader.addEventListener("load", function () {
       uploadContainer.style.backgroundImage = `url(${this.result})`;
-      formBtn.style.display = "flex";
+      if ((document.querySelector(".camera-icon").style.display = "none")) {
+        formBtn.style.display = "flex";
+      }
     });
     reader.readAsDataURL(file);
   }
