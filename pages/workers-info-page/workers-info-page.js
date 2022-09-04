@@ -401,3 +401,17 @@ if (
   userEmailInput.value = user.email;
   userTelInput.value = user.phone_number;
 }
+const propPageNavBtn = document.querySelector(".laptop-props-link");
+
+propPageNavBtn.addEventListener("click", function (e) {
+  if (
+    userNameInput.value === "" ||
+    userLastNameInput.value === "" ||
+    userEmailInput.value === "" ||
+    userTelInput.value === "" ||
+    teamSelectElement.value === "თიმი" ||
+    positionSelectElement.value === "პოზიცია"
+  ) {
+    e.preventDefault();
+  }
+});
