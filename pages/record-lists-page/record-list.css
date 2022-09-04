@@ -45,6 +45,7 @@ body {
   background-color: #eafaff;
   padding: 1.5rem 9rem 1.5rem 1.5rem;
   border-radius: 2rem;
+  border: 1px solid #aed1ea;
 }
 .user-name {
   font-size: 1.8rem;
@@ -86,4 +87,62 @@ body {
 .computer-img-div img {
   width: 100%;
   height: 100%;
+  border-radius: 0.6rem;
+}
+.return-back-btn-res {
+  display: none;
+}
+@media screen and (max-width: 390px) {
+  .return-back-btn {
+    display: none;
+  }
+  .return-back-btn-res {
+    display: block;
+    margin-left: 2rem;
+    width: 0.9rem;
+    height: 1.6rem;
+  }
+  .grid-container {
+    margin-top: 0rem;
+    grid-template-columns: 1fr;
+    gap: 2.6rem;
+  }
+
+  .laptop-info-header {
+    height: 8.4rem;
+    display: flex;
+    align-items: center;
+    gap: 9rem;
+  }
+  .header-text {
+    margin: 0;
+    font-size: 2.4rem;
+  }
+  .computer-img-div {
+    width: 16.4rem;
+    height: 10.9rem;
+  }
+  .computer-img-div img {
+    width: 100%;
+    height: 100%;
+  }
+  .info-container {
+    padding: 0.7rem 0rem 0.7rem 0.7rem;
+  }
+  .rest-info-div {
+    gap: 0;
+  }
+  .user-name {
+    font-size: 1.6rem;
+    margin-top: -3rem;
+  }
+  .cpu-name {
+    margin-top: 1rem;
+  }
+  .see-more {
+    color: #4d9ac3;
+  }
+  .header-text {
+    font-size: 2rem;
+  }
 }
