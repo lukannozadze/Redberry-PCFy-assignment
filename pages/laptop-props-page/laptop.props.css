@@ -310,3 +310,127 @@ html {
 .upload-over {
   border: 0.2rem solid #4386a9;
 }
+.return-back-btn-res,
+#upload-txt-res,
+.camera-icon,
+.page-number-text {
+  display: none;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 390px) {
+  .laptop-props-divider,
+  .worker-info-flex,
+  .btn-info,
+  .footer-logo,
+  #upload-txt,
+  .upload-warning-icon,
+  .first-divider,
+  .second-divider {
+    display: none;
+  }
+  .header-text,
+  .main-container {
+    margin: 0;
+  }
+  .upload-container {
+    width: 35.8rem;
+    height: 24.4rem;
+  }
+  .name-brand-flex-container {
+    flex-direction: column;
+  }
+  .input,
+  .select,
+  #cpu,
+  #cores-number,
+  #stream-number {
+    width: 35.8rem;
+  }
+  .model-cores-stream-flex-container,
+  .ram-storage-flex-container,
+  .date-price-flex-container {
+    flex-direction: column;
+  }
+
+  .return-back-btn {
+    display: none;
+  }
+  .return-back-btn-res {
+    display: block;
+  }
+  .laptop-props-header {
+    height: 8.4rem;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-left: -7rem;
+  }
+  .page-number-text {
+    display: block;
+    font-size: 1.4rem;
+    color: #898989;
+    font-family: "Helvetica Neue";
+  }
+  .laptop-props-flex {
+    gap: 0rem;
+    margin-top: 1.8rem;
+  }
+  #upload-txt-res {
+    display: flex;
+    color: #4386a9;
+    font-weight: 400;
+    line-height: 2.6rem;
+    margin-top: 0.9rem;
+    order: 2;
+  }
+  .camera-icon {
+    display: flex;
+    order: 1;
+  }
+  .form-container {
+    padding-top: 2.9rem;
+    margin-bottom: 0rem;
+  }
+
+  .upload-text-div {
+    margin-top: -5.5rem;
+    gap: 1.2rem;
+  }
+  .upload-warning-icon {
+    display: flex;
+    order: 3;
+    width: 2.5rem;
+    height: 2.3rem;
+    display: none;
+  }
+  .name-brand-flex-container {
+    gap: 1.4rem;
+  }
+  #brand {
+    margin-bottom: 3.3rem;
+  }
+  .model-cores-stream-flex-container {
+    gap: 1.4rem;
+  }
+  #cpu {
+    margin-bottom: 2.2rem;
+  }
+  .ram-storage-flex-container {
+    margin-top: 1.4rem;
+  }
+  .storage-type-container {
+    margin-left: -14rem;
+  }
+  .answer {
+    margin-top: 1.6rem;
+  }
+  .date-price-flex-container {
+    gap: 1.4rem;
+    margin-bottom: 1.4rem;
+  }
+  .btn-save {
+    width: 17.1rem;
+    padding: 1.2rem 1.45rem 1.2rem 1.45rem;
+  }
+}

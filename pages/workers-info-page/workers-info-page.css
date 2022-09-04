@@ -187,7 +187,7 @@ html {
   right: 1.5rem;
   display: none;
 }
-.tel-rule-responsive,
+#tel-rule-responsive,
 .return-back-btn-res,
 .page-number-text {
   display: none;
@@ -241,7 +241,7 @@ html {
   .tel-container {
     margin-bottom: 0px;
   }
-  .tel-rule-responsive {
+  #tel-rule-responsive {
     display: flex;
   }
   .button {
@@ -261,7 +261,7 @@ html {
   }
   .footer,
   .footer-logo,
-  .tel-rule,
+  #tel-rule,
   .laptop-props,
   .worker-info-divider,
   .return-back-btn {

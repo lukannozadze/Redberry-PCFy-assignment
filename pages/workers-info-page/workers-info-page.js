@@ -236,6 +236,10 @@ userTelInput.addEventListener("blur", function () {
     userTelRuleText.textContent =
       "უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს";
     userTelRuleText.style.color = "rgba(0, 0, 0, 0.6)";
+    if (document.getElementById("tel-rule-responsive")) {
+      document.getElementById("tel-rule-responsive").style.color =
+        "rgba(0, 0, 0, 0.6)";
+    }
     telText.style.color = "#000000";
     user = {
       ...user,
@@ -249,6 +253,9 @@ userTelInput.addEventListener("blur", function () {
     userTelInput.style.border = "0.2rem solid #E52F2F ";
     userTelRuleText.textContent = "შეავსე გამოტოვებული ველი";
     userTelRuleText.style.color = "#E52F2F";
+    if (document.getElementById("tel-rule-responsive")) {
+      document.getElementById("tel-rule-responsive").style.color = "#E52F2F";
+    }
     telText.style.color = "#E52F2F";
   }
   if (!userTelInput.value.match(userTelRule) && userTelInput.value !== "") {
@@ -256,6 +263,9 @@ userTelInput.addEventListener("blur", function () {
     userTelRuleText.textContent =
       "მხოლოდ ციფრები, უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს";
     userTelRuleText.style.color = "#E52F2F";
+    if (document.getElementById("tel-rule-responsive")) {
+      document.getElementById("tel-rule-responsive").style.color = "#E52F2F";
+    }
     telText.style.color = "#E52F2F";
     localStorage.setItem("userTel", userTelInput.value);
   }

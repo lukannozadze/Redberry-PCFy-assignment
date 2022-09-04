@@ -419,6 +419,9 @@ fileInput.addEventListener("change", function () {
   if (file) {
     const reader = new FileReader();
     uploadContainerText.style.display = "none";
+    if (document.getElementById("upload-txt-res")) {
+      document.getElementById("upload-txt-res").style.display = "none";
+    }
     formBtn.style.display = "none";
 
     reader.addEventListener("load", function () {
@@ -459,6 +462,9 @@ const updateThumbnail = function (file) {
     reader.onload = () => {
       uploadContainer.style.backgroundImage = `url(${reader.result})`;
       uploadContainerText.style.display = "none";
+      if (document.getElementById("upload-txt-res")) {
+        document.getElementById("upload-txt-res").style.display = "none";
+      }
     };
   }
 };
@@ -525,11 +531,17 @@ saveBtn.addEventListener("click", function (e) {
     uploadContainer.style.border = "0.2rem dashed #E52F2F";
     uploadContainer.style.backgroundColor = "#FFF1F1";
     uploadContainerText.style.color = "#E52F2F";
+    if (document.getElementById("upload-txt-res")) {
+      document.getElementById("upload-txt-res").style.color = "#E52F2F";
+    }
     uploadCOntainerIcon.style.display = "flex";
   } else {
     uploadContainer.style.border = "0.2rem dashed #4386a9";
     uploadContainer.style.backgroundColor = "#F6F6F6";
     uploadContainerText.style.color = "#4386a9";
+    if (document.getElementById("upload-txt-res")) {
+      document.getElementById("upload-txt-res").style.color = "#4386a9";
+    }
   }
 
   if (updatedUser !== null) {
