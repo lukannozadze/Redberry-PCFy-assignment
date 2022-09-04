@@ -187,3 +187,87 @@ html {
   right: 1.5rem;
   display: none;
 }
+.tel-rule-responsive,
+.return-back-btn-res,
+.page-number-text {
+  display: none;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 390px) {
+  .return-back-btn-res {
+    display: block;
+  }
+  .workers-info-header {
+    align-items: center;
+    height: 8.4rem;
+    gap: 5.6rem;
+    margin-left: -4rem;
+  }
+  .page-number-text {
+    display: block;
+    font-size: 1.4rem;
+    color: #898989;
+    font-family: "Helvetica Neue";
+  }
+  .worker-info-flex {
+    gap: 0rem;
+    margin-top: 2rem;
+  }
+  .first-last-flex {
+    flex-direction: column;
+    gap: 2.3rem;
+  }
+  .select,
+  .input,
+  #email,
+  #tel {
+    width: 35.8rem;
+  }
+  .worker-info-form {
+    width: 39rem;
+    height: 91.9rem;
+  }
+  .form-container {
+    margin-top: 0px;
+  }
+  .header-text {
+    margin: 0;
+  }
+  .return-back-btn {
+    margin-left: 0px;
+  }
+  .tel-container {
+    margin-bottom: 0px;
+  }
+  .tel-rule-responsive {
+    display: flex;
+  }
+  .button {
+    margin: 4.3rem 0rem 5.8rem 22rem;
+    padding: 1.2rem 2.75rem 1.2rem 2.75rem;
+  }
+  .worker-info-form {
+    padding-top: 5rem;
+    margin-bottom: 0px;
+  }
+  #position {
+    margin-top: 4rem;
+    margin-bottom: 2.4rem;
+  }
+  .email-container {
+    margin-bottom: 2.2rem;
+  }
+  .footer,
+  .footer-logo,
+  .tel-rule,
+  .laptop-props,
+  .worker-info-divider,
+  .return-back-btn {
+    display: none;
+  }
+  #team {
+    margin-top: 1.8rem;
+  }
+}
