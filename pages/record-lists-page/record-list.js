@@ -5,7 +5,6 @@ fetch(
 )
   .then((r) => r.json())
   .then((res) => {
-    console.log(res);
     let imgPathsArr = [];
     res.data.forEach((item) => {
       let cpuNameElement = document.createElement("span");

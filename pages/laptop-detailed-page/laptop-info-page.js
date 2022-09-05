@@ -18,6 +18,7 @@ let laptopCondition = document.getElementById("answer-lcondition");
 let laptopPrice = document.getElementById("answer-lprice");
 let laptopPurchaseDate = document.getElementById("answer-lpurchasedate");
 
+//check the id at the end of the URL and render detailed info
 const baseUrl = document.URL;
 const id = baseUrl.slice(baseUrl.indexOf("?") + 1);
 let teamsArr = [];
@@ -31,7 +32,7 @@ const x = async function () {
   teamsData.data.forEach((item) => {
     teamsArr.push(item);
   });
-  console.log(teamsArr);
+
   let positionsResponse = await fetch(
     "https://pcfy.redberryinternship.ge/api/positions"
   );
@@ -39,7 +40,6 @@ const x = async function () {
   positionsData.data.forEach((item) => {
     posArr.push(item);
   });
-  console.log(posArr);
 
   let brandsResponse = await fetch(
     "https://pcfy.redberryinternship.ge/api/brands"
@@ -48,16 +48,15 @@ const x = async function () {
   brandsData.data.forEach((item) => {
     brandsArr.push(item);
   });
-  console.log(brandsArr);
 
   let allDataResponse = await fetch(
     `https://pcfy.redberryinternship.ge/api/laptop/${id}?token=dfcb53d734ba326d29dacdd754100855`
   );
   let allData = await allDataResponse.json();
-  console.log(allData);
+
   let imgPath = `https://pcfy.redberryinternship.ge${allData.data.laptop.image}`;
   laptopImage.src = imgPath;
-  console.log(imgPath);
+
   userName.textContent = `${allData.data.user.name} ${allData.data.user.surname}`;
   let teamEl = teamsArr.find((el) => el.id === allData.data.user.team_id);
   userTeam.textContent = teamEl.name;

@@ -2,6 +2,7 @@
 const teamSelectElement = document.getElementById("team");
 const positionSelectElement = document.getElementById("position");
 
+//fields
 const userNameInput = document.getElementById("fname");
 const userLastNameInput = document.getElementById("lname");
 const userEmailInput = document.getElementById("email");
@@ -21,6 +22,7 @@ const userTelRule = /^[+]995[0-9]{9}$/;
 //next button
 const nextBtn = document.querySelector(".next-btn");
 let user = {};
+
 ///////////////////////////////REFRESH////////////////////////////////////
 if (localStorage.getItem("userName")) {
   userNameInput.value = localStorage.getItem("userName");
@@ -401,8 +403,9 @@ if (
   userEmailInput.value = user.email;
   userTelInput.value = user.phone_number;
 }
-const propPageNavBtn = document.querySelector(".laptop-props-link");
 
+// prevent default action when navigation button is clicked and on of the required fields is empty
+const propPageNavBtn = document.querySelector(".laptop-props-link");
 propPageNavBtn.addEventListener("click", function (e) {
   if (
     userNameInput.value === "" ||

@@ -30,7 +30,7 @@ const laptopNameRule = /^[a-zA-Z0-9\W]*$/;
 const saveBtn = document.querySelector(".btn-save");
 let updatedUser = {};
 
-//laptopName laptopBrand laptopCpuName laptopCoresNumber laptopCpuStream laptopRam laptopPurchaseDate laptopPurchasePrice storageTypeAnswer laptopConditionAnswer
+// if information exists in local storage fields should be filled
 if (localStorage.getItem("laptopName")) {
   laptopName.value = localStorage.getItem("laptopName");
 } else {
