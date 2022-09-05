@@ -125,6 +125,7 @@ html {
   line-height: 2.1rem;
   color: rgba(0, 0, 0, 0.6);
 }
+
 .select {
   width: 40.8rem;
   height: 6rem;
@@ -407,12 +408,19 @@ html {
   }
   .name-brand-flex-container {
     gap: 1.4rem;
+    background-color: #ffffff;
+    border-bottom-right-radius: 1.2rem;
+    border-bottom-left-radius: 1.2rem;
   }
   #brand {
     margin-bottom: 3.3rem;
   }
   .model-cores-stream-flex-container {
     gap: 1.4rem;
+    background-color: #ffffff;
+    margin-top: 1rem;
+    border-top-right-radius: 1.2rem;
+    border-top-left-radius: 1.2rem;
   }
   #cpu {
     margin-bottom: 2.2rem;
@@ -433,5 +441,56 @@ html {
   .btn-save {
     width: 17.1rem;
     padding: 1.2rem 1.45rem 1.2rem 1.45rem;
+  }
+  .form {
+    width: 100%;
+    background-color: #ebebeb;
+  }
+  #cpu {
+    margin-top: 3.3rem;
+  }
+  .date-price-flex-container,
+  .laptop-condition-container {
+    padding-left: 1.5rem;
+    background-color: #ffffff;
+  }
+  .btn-back {
+    padding-left: 1.5rem;
+  }
+  .btn-save {
+    margin-right: 2rem;
+  }
+  .ram-storage-flex-container {
+    background-color: #ffffff;
+    margin-top: 0rem;
+    border-bottom-right-radius: 1.2rem;
+    border-bottom-left-radius: 1.2rem;
+    padding-bottom: 3rem;
+    margin-bottom: 1rem;
+  }
+  .cpu-stream-container {
+    padding-bottom: 2rem;
+  }
+  .date-price-flex-container {
+    border-top-right-radius: 1.2rem;
+    border-top-left-radius: 1.2rem;
+    padding-top: 3rem;
+    margin-bottom: 0rem;
+  }
+  .laptop-price-container {
+    padding-bottom: 2rem;
+  }
+  .back-next-buttons-container {
+    background-color: #ffffff;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding-top: 4.7rem;
+    padding-bottom: 4.5rem;
+  }
+  .laptop-input-container {
+    padding-bottom: 1rem;
+  }
+  .gel-icon {
+    right: 3.5rem;
   }
 }
