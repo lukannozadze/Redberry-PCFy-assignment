@@ -62,6 +62,10 @@ body {
   font-family: "Helvetica Neue";
   list-style-type: none;
 }
+.user-quest-answer-flex {
+  display: flex;
+  gap: 6.8rem;
+}
 .user-info-flex {
   display: flex;
   gap: 6.8rem;
@@ -117,4 +121,69 @@ body {
 .laptop-image {
   width: 57.7rem;
   height: 34.2rem;
+}
+.return-back-btn-res {
+  display: none;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 390px) {
+  .return-back-btn {
+    display: none;
+  }
+  html {
+    font-size: 7px;
+  }
+  .return-back-btn-res {
+    display: block;
+    margin-top: -1rem;
+    position: absolute;
+  }
+  .header-text {
+    margin: 0rem;
+    font-size: 2.4rem;
+    margin-left: 4rem;
+  }
+  .laptop-info-header {
+    align-items: center;
+    justify-content: center;
+    gap: 9rem;
+    width: 43rem;
+    height: 8.4rem;
+  }
+  .user-info-flex {
+    flex-direction: column;
+    margin-top: 0rem;
+  }
+
+  .info-container {
+    width: 45rem;
+  }
+  .general-cpu-common-flex {
+    flex-direction: column;
+    gap: 0rem;
+  }
+  .laptop-cpu-flex-container {
+    gap: 13.2rem;
+  }
+  .condition-price-date-flex {
+    flex-direction: column;
+    gap: 0rem;
+  }
+  .first-divider,
+  .second-divider {
+    width: 43rem;
+  }
+  .laptop-image {
+    width: 45rem;
+  }
+  .purchase-date-flex {
+    gap: 10.9rem;
+  }
+  .first-divider {
+    margin-top: 5.4rem;
+  }
+  .purchase-date-flex {
+    margin-bottom: 5rem;
+  }
 }
